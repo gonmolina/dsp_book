@@ -1,0 +1,13 @@
+format: jb-book
+root: sources/intro/intro
+parts:
+- caption: "Introducción a Python"
+  chapters:
+  - file: sources/python/guia_de_instalacion
+  - file: sources/python/intro_python
+  - file: sources/python/intro_matplotlib
+  - file: sources/python/intro_sympy
+- caption: "Muestreo de señales"
+  chapters:
+  - file: sources/diapos1/diapos1
+

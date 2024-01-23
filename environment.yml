@@ -1,0 +1,28 @@
+name: book
+channels:
+  - conda-forge
+  - microsoft
+  - defaults
+dependencies:
+  - control
+  - slycot
+  - scipy
+  - sympy
+  - ipympl
+  - ipython
+  - jupyter-book
+  - jupyterlab
+  - jupytext
+  - numpy
+  - pandas
+  - pip
+  - python=3.12
+  - matplotlib
+  - myst-nb
+  - myst-parser
+  - pyserial
+  - pip:
+    - jupyterlab-myst
+    - jupyterlab-rise
+
+  
