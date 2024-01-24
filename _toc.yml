@@ -10,4 +10,5 @@ parts:
 - caption: "Muestreo de señales"
   chapters:
   - file: sources/diapos1/diapos1
+  - file: sources/diapo_sistemas/diapo_sistemas
 
