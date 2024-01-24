@@ -1,0 +1,858 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Sistemas dinámicos &#8212; Laboratorio de Procesamiento digital de señales</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "gonmolina/dsp_book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sources/diapo_sistemas/diapo_sistemas';</script>
+    <link rel="canonical" href="https://gonmolina.github.io/dsp_book/sources/diapo_sistemas/diapo_sistemas.html" />
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="prev" title="Diapositivas clase 1" href="../diapos1/diapos1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/dsp2.png" class="logo__image only-light" alt="Laboratorio de Procesamiento digital de señales - Home"/>
+    <script>document.write(`<img src="../../_static/dsp2.png" class="logo__image only-dark" alt="Laboratorio de Procesamiento digital de señales - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro/intro.html">
+                    Material de la mateira de Laboratorio de Procesamiento Digital de Señales
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción a Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/guia_de_instalacion.html">Guía de instalación de las herramientas computacionales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/intro_python.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/intro_matplotlib.html">Figuras en Python - MATPLOTLIB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/intro_sympy.html">Introducción a SymPy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Muestreo de señales</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../diapos1/diapos1.html">Diapositivas clase 1</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sistemas dinámicos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gonmolina/dsp_book/blob/main/sources/diapo_sistemas/diapo_sistemas.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/gonmolina/dsp_book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gonmolina/dsp_book/edit/main/sources/diapo_sistemas/diapo_sistemas.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gonmolina/dsp_book/issues/new?title=Issue%20on%20page%20%2Fsources/diapo_sistemas/diapo_sistemas.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/sources/diapo_sistemas/diapo_sistemas.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Descargar archivo de cuaderno"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/sources/diapo_sistemas/diapo_sistemas.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sistemas dinámicos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas">Sistemas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos-de-sistema">Ejemplos de sistema</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-de-calefaccion-solar">Sistema de Calefacción Solar</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ecosistema">Ecosistema</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-de-analisis-entrada-salida">Ejercicio de análisis entrada/salida</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracterizacion-de-sistemas">Caracterización de sistemas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linealidad">Linealidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invariancia-en-el-tiempo">Invariancia en el tiempo</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#principio-de-estacionariedad-o-invariancia-en-el-tiempo">Principio de estacionariedad o invariancia en el tiempo</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-estaticos-y-dinamicos">Sistemas Estáticos y Dinámicos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-causales-y-no-causales">Sistemas Causales y No causales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-clasificacion-de-sistemas">Ejercicio clasificación de sistemas</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-matematica-de-los-sistemas-dinamicos">Representación matemática de los sistemas dinámicos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion-de-la-ecuacion-homogenea">Solución de la ecuación homogénea</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion-particular">Solución particular</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sistemas-dinamicos">
+<h1>Sistemas dinámicos<a class="headerlink" href="#sistemas-dinamicos" title="Permalink to this heading">#</a></h1>
+<section id="sistemas">
+<h2>Sistemas<a class="headerlink" href="#sistemas" title="Permalink to this heading">#</a></h2>
+<div class="important admonition">
+<p class="admonition-title">Definición</p>
+<p><strong>Sistema.</strong> Conjunto delimitado de componentes que interactúan entre sí.</p>
+</div>
+<p>En general esta definición es un genérica y no está necesariamente restringidos a sistemas físicos. Pueden ser biológicos, económicos, computacionales, informáticos, sociales, etc.</p>
+<section id="ejemplos-de-sistema">
+<h3>Ejemplos de sistema<a class="headerlink" href="#ejemplos-de-sistema" title="Permalink to this heading">#</a></h3>
+<section id="sistema-de-calefaccion-solar">
+<h4>Sistema de Calefacción Solar<a class="headerlink" href="#sistema-de-calefaccion-solar" title="Permalink to this heading">#</a></h4>
+<figure class="align-default" id="calefa-solar">
+<a class="reference internal image-reference" href="../../_images/calefa_solar.png"><img alt="../../_images/calefa_solar.png" src="../../_images/calefa_solar.png" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 1 </span><span class="caption-text">Sistema de calefacción solar</span><a class="headerlink" href="#calefa-solar" title="Enlace permanente a esta imagen">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="esquema-calefa-solar">
+<a class="reference internal image-reference" href="../../_images/esquema_calefa_solar.png"><img alt="../../_images/esquema_calefa_solar.png" src="../../_images/esquema_calefa_solar.png" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 2 </span><span class="caption-text">Esquema entrada salida del sistema de calefacción solar</span><a class="headerlink" href="#esquema-calefa-solar" title="Enlace permanente a esta imagen">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="ecosistema">
+<h4>Ecosistema<a class="headerlink" href="#ecosistema" title="Permalink to this heading">#</a></h4>
+<p>Ambiente aislado compuesto por dos clases de individuos: presas (P: población de presas) y depredadores (D: población de depredadores).</p>
+<p>Hipótesis del modelo:</p>
+<ol class="arabic simple">
+<li><p>En ausencia de depredadores (D=0), la población de presas crece exponencialmente.</p></li>
+<li><p>Los depredadores sólo se alimentan de presas, por lo que en ausencia de presas (P=0), la población de depredadores se extingue exponencialmente.</p></li>
+</ol>
+<p>Un posible modelo que verifica estas hipótesis es el de <strong>Lotka-Volterra</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\frac{dP(t)}{dt}&amp;=\alpha_1P(t)-\alpha_2D(t)P(t)\\
+\frac{dD(t)}{dt}&amp;=\alpha_3P(t)D(t)-\alpha_4D(t)
+\end{align*}
+\end{split}\]</div>
+</section>
+<section id="ejercicio-de-analisis-entrada-salida">
+<h4>Ejercicio de análisis entrada/salida<a class="headerlink" href="#ejercicio-de-analisis-entrada-salida" title="Permalink to this heading">#</a></h4>
+<p>En esta representación del sistema, ¿cuáles les parece podrían que podrían ser las entradas y las salidas?</p>
+</section>
+</section>
+</section>
+<section id="caracterizacion-de-sistemas">
+<h2>Caracterización de sistemas<a class="headerlink" href="#caracterizacion-de-sistemas" title="Permalink to this heading">#</a></h2>
+<section id="linealidad">
+<h3>Linealidad<a class="headerlink" href="#linealidad" title="Permalink to this heading">#</a></h3>
+<p>Un sistema es <strong>lineal</strong> si verifica el <strong>Principio de Superposición</strong>, tanto para entradas como para condiciones iniciales.</p>
+<p>Si para una entrada <span class="math notranslate nohighlight">\(u_1\)</span> aplicada en el instante <span class="math notranslate nohighlight">\(t_0\)</span>, con el sistema en un estado inicial <span class="math notranslate nohighlight">\(\sum_0\)</span>, la salida es <span class="math notranslate nohighlight">\(y_1\)</span> , y para una entrada <span class="math notranslate nohighlight">\(u_2\)</span> aplicada en el instante <span class="math notranslate nohighlight">\(t_0\)</span>, con el sistema en un estado inicial <span class="math notranslate nohighlight">\(\sum_0\)</span>, la salida es <span class="math notranslate nohighlight">\(y_2\)</span>
+entonces si se aplica una <span class="math notranslate nohighlight">\(c_1u_1 +c_2u_2\)</span>  entrada en el instante <span class="math notranslate nohighlight">\(t_0\)</span>, con el sistema en un estado inicial <span class="math notranslate nohighlight">\(\sum_0\)</span>, la salida será <span class="math notranslate nohighlight">\(c_1y_1 +c_2y_2\)</span></p>
+<figure class="align-default" id="hipo-super">
+<a class="reference internal image-reference" href="../../_images/superposicion1.png"><img alt="../../_images/superposicion1.png" src="../../_images/superposicion1.png" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 3 </span><span class="caption-text">Hipótesis linealidad</span><a class="headerlink" href="#hipo-super" title="Enlace permanente a esta imagen">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="req-super">
+<a class="reference internal image-reference" href="../../_images/superposicion2.png"><img alt="../../_images/superposicion2.png" src="../../_images/superposicion2.png" style="width: 450px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 4 </span><span class="caption-text">Requerimiento de linealidad</span><a class="headerlink" href="#req-super" title="Enlace permanente a esta imagen">#</a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>Es claro que esta propiedad, como fue definida, es imposible de verificar en la práctica, ya que no se pueden realizar los ensayos propuestos en el mismo período de tiempo.</p></li>
+<li><p>Debemos asumir entonces que el sistema no cambia con el tiempo (propiedad de <strong>estacionariedad</strong> o <strong>invariancia en el tiempo</strong>, que definiremos a continuación), de manera que podemos realizar los ensayos a distintos tiempos a partir del sistema en el mismo estado inicial.</p></li>
+<li><p>Un sistema que no verifica el principio de Superposición se denomina <strong>no lineal</strong>.</p></li>
+</ul>
+</section>
+<section id="invariancia-en-el-tiempo">
+<h3>Invariancia en el tiempo<a class="headerlink" href="#invariancia-en-el-tiempo" title="Permalink to this heading">#</a></h3>
+<p>Un sistema es invariante en el tiempo si su salida es siempre la misma cada vez que se aplique la misma entrada (para las mismas condiciones iniciales), sin importar el instante en que se aplique la entrada. Para dar una definición más precisa, es necesario definir el operador desplazamiento temporal que notaremos: <span class="math notranslate nohighlight">\(z_{\Delta}\)</span>  que aplicado a una función del tiempo, la desplaza temporalmente un intervalo <span class="math notranslate nohighlight">\(\Delta\)</span>, es decir:</p>
+<figure class="align-default" id="desp-temp">
+<a class="reference internal image-reference" href="../../_images/estacionariedad.png"><img alt="../../_images/estacionariedad.png" src="../../_images/estacionariedad.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 5 </span><span class="caption-text">Operador desplazamiento temporal</span><a class="headerlink" href="#desp-temp" title="Enlace permanente a esta imagen">#</a></p>
+</figcaption>
+</figure>
+<p>Por lo tanto, el sistema es estacionario estacionario si para una entrada <span class="math notranslate nohighlight">\(u(t)\)</span> aplicada en el instante <span class="math notranslate nohighlight">\(t_0\)</span> resulta la salida es <span class="math notranslate nohighlight">\(y(t),\)</span> entonces para una entrada = <span class="math notranslate nohighlight">\(z^\Delta u(t)\)</span> aplicada en <span class="math notranslate nohighlight">\(t_0+\Delta\)</span> la salida es <span class="math notranslate nohighlight">\(\tilde y(t) =z^\Delta y(t)\)</span></p>
+<section id="principio-de-estacionariedad-o-invariancia-en-el-tiempo">
+<h4>Principio de estacionariedad o invariancia en el tiempo<a class="headerlink" href="#principio-de-estacionariedad-o-invariancia-en-el-tiempo" title="Permalink to this heading">#</a></h4>
+<figure class="align-default" id="pri-est">
+<a class="reference internal image-reference" href="../../_images/estacionariedad2.png"><img alt="../../_images/estacionariedad2.png" src="../../_images/estacionariedad2.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Figura 6 </span><span class="caption-text">Principio de invariancia en el tiempo</span><a class="headerlink" href="#pri-est" title="Enlace permanente a esta imagen">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="sistemas-estaticos-y-dinamicos">
+<h3>Sistemas Estáticos y Dinámicos<a class="headerlink" href="#sistemas-estaticos-y-dinamicos" title="Permalink to this heading">#</a></h3>
+<p>Un sistema en el cual la salida en el instante <span class="math notranslate nohighlight">\(t\)</span> depende exclusivamente de la entrada en ese instante <span class="math notranslate nohighlight">\(t\)</span> es llamado <strong>Sistema Estático</strong> o sin memoria. En contraposición, un <strong>Sistema Dinámico</strong> es uno en el cual la salida en el instante <span class="math notranslate nohighlight">\(t\)</span> depende también de valores pasados y/o futuros de la entrada, además del valor en <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>Los sistemas que estudiaremos en esta materia son los sistemas dinámicos, es decir que el valor de la salida actual depende no solo de las entradas actuales sino también de los valores de la entradas pasadas. Aunque diseñaremos también algunos controladores que pueden considerarse estáticos, es decir que cuya salida solo depende de valores presentes de la entrada del controlador.</p>
+</section>
+<section id="sistemas-causales-y-no-causales">
+<h3>Sistemas Causales y No causales<a class="headerlink" href="#sistemas-causales-y-no-causales" title="Permalink to this heading">#</a></h3>
+<p>Un sistema es <strong>causal</strong> si su respuesta a una entrada no depende de valores futuros de esa entrada y/o valores futuros de salidas. Un sistema que no verifica esta propiedad es llamado <strong>no causal</strong>. En particular un sistema se dice <strong>anticausal</strong> si su respuesta a una entrada depende exclusivamente de valores futuros de esa entrada y/o valores futuros de salidas.</p>
+<p>Todos los sistemas físicos son <strong>causales</strong>.</p>
+<section id="ejercicio-clasificacion-de-sistemas">
+<h4>Ejercicio clasificación de sistemas<a class="headerlink" href="#ejercicio-clasificacion-de-sistemas" title="Permalink to this heading">#</a></h4>
+<p>Clasificar los siguientes sistemas si son:</p>
+<ul class="simple">
+<li><p><strong>lineales/no lineales</strong></p></li>
+<li><p><strong>dinámicos/estáticos</strong></p></li>
+<li><p><strong>variantes/invariantes</strong></p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Sistema amplificador de audio idealizado 1:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[y(t) = Ku(t)\]</div>
+<p>donde <span class="math notranslate nohighlight">\(y(t)\)</span> es la señal de potencia de salida y <span class="math notranslate nohighlight">\(u(t)\)</span> es la señal de entrada</p>
+<ol class="arabic simple" start="2">
+<li><p>Es un sistema idéntico al sistema 2, pero se tiene en cuenta una degradación de la ganancia debido al calentamiento al pasar el tiempo, que se modela de la siguiente manera:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[y(t) = K(t)u(t)\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Sistema masa resorte 1</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[ ma(t) = F + mg - b \dot x(t) - K x(t)\]</div>
+<p>donde <span class="math notranslate nohighlight">\(F(t)\)</span> es una fuerza aplicada que se puede manipular (es la entrada del sistema). La salida del sistema será la posición <span class="math notranslate nohighlight">\(x(t)\)</span>.</p>
+<ol class="arabic simple" start="4">
+<li><p>Sistema masa resorte 2</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[ ma(t) = F + mg - b \dot x(t) - K x(t)\]</div>
+<p>donde <span class="math notranslate nohighlight">\(F(t)\)</span> es una fuerza aplicada que se puede manipular (es la entrada del sistema). La salida del sistema será la posición <span class="math notranslate nohighlight">\(x(t)\)</span>.</p>
+</section>
+</section>
+<section id="representacion-matematica-de-los-sistemas-dinamicos">
+<h3>Representación matemática de los sistemas dinámicos<a class="headerlink" href="#representacion-matematica-de-los-sistemas-dinamicos" title="Permalink to this heading">#</a></h3>
+<p>De los ejercicios anteriores podemos notar que los sistemas dinámicos son representados por ecuaciones diferenciales. En general, si la ecuación diferencial es lineal, la podemos escribir como;</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+ &amp; a_n\frac{d^ny(t)}{dt^n}+a_{n-1}\frac{d^{n-1}y(t)}{dt^{n-1}}+\cdots+a_{1}\frac{dy(t)}{dt}+a_0y(t) = \dots \\
+  &amp;\dots  b_p\frac{d^pu(t)}{dt^p}+b_{p-1}\frac{d^{p-1}u(t)}{dt^{p-1}}+\cdots+b_{1}\frac{du(t)}{dt}+b_0u(t)
+\end{aligned}
+\end{split}\]</div>
+<p>Si recordamos las clases de matemáticas, la resolución de estas ecuaciones se plantean dividiendo el problema en dos:</p>
+<ol class="arabic simple">
+<li><p>solución de la ecuación homogénea, es decir con <span class="math notranslate nohighlight">\(u(t)=0\)</span></p></li>
+<li><p>solución de la ecuación particular, que depende de la forma de <span class="math notranslate nohighlight">\(u(t)\)</span></p></li>
+</ol>
+<p>Cuando la ecuación diferencial es la representación matemática de un sistema, se dice que <strong>la solución de la ecuación homogénea es la respuesta libre del sistema</strong>, ya que describe el comportamiento del sistema cuando no es afectado por ninguna entrada externa; y esta solución depende solo de los valores de la condiciones iniciales del mismo, mientas que la <strong>solución de la ecuación particular es la respuesta forzada del sistema</strong> ya que se debe a la entrada.</p>
+<section id="solucion-de-la-ecuacion-homogenea">
+<h4>Solución de la ecuación homogénea<a class="headerlink" href="#solucion-de-la-ecuacion-homogenea" title="Permalink to this heading">#</a></h4>
+<p>De la ecuación anterior obtenemos el polinomio característico del sistema y lo igualamos a cero:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{aligned}
+ &amp; a_n\lambda^n+a_{n-1}\lambda^{n-1}+\cdots+a_{1}\lambda+a_0= 0
+\end{aligned}
+\]</div>
+<p>Si las raíces del polinomio anterior son <span class="math notranslate nohighlight">\(\lambda_1 \dots \lambda_n\)</span>, entonces la solución de la homogénea es:</p>
+<div class="math notranslate nohighlight">
+\[y_H(t)=K_1e^{\lambda_1t}+K_2e^{\lambda_2t}+\dots+K_ne^{\lambda_nt}\]</div>
+<p>Podemos ver que la distintos casos de las raíces de <span class="math notranslate nohighlight">\(\lambda\)</span>:</p>
+<ol class="arabic simple">
+<li><p><strong>raíces reales positivas</strong>: en ese caso la solución de la homogénea tenderá a diverger, ya que poseerá términos que tienden a infinito y en este caso de que aparezca alguna raíz de esta forma se dice que el sistema es inestable</p></li>
+<li><p><strong>raíces reales negativas</strong>: en ese caso la solución de la homogénea en infinito tienda a cero</p></li>
+<li><p><strong>raíces complejas</strong> en caso de que el polinomio sea a coeficientes las raíces complejas siempre aparecen con su conjugado, y por lo tanto la solución de esos pares se puede escribir como:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[y_{Hi}(t) = K_ie^{\sigma_it}\cos(\omega_it+\phi_i)\]</div>
+<p>Donde <span class="math notranslate nohighlight">\(\sigma_i\)</span> y <span class="math notranslate nohighlight">\(\omega_i\)</span> son la parte real e imaginaria respectivamente del par ceros complejo conjugado de la ecuación característica, y <span class="math notranslate nohighlight">\(K_i\)</span> y <span class="math notranslate nohighlight">\(\phi_i\)</span> salen la resolución de la ecuación de euler para senos y cosenos.</p>
+<p>Nuevamente acá vemos que si <span class="math notranslate nohighlight">\(\sigma_i\)</span> es positivo la solución va a diverger y si es negativo la solución va a converger. Finalmente en el caso de <span class="math notranslate nohighlight">\(\sigma=0\)</span> la solución es una señal armónica pura.</p>
+</section>
+<section id="solucion-particular">
+<h4>Solución particular<a class="headerlink" href="#solucion-particular" title="Permalink to this heading">#</a></h4>
+<p>Para obtener la solución particular dependemos de la forma de la <span class="math notranslate nohighlight">\(u(t)\)</span>, y se plantea que la solución particular tiene la misma forma. En general nos interesan 3 formas de <span class="math notranslate nohighlight">\(u(t)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \begin{align*}
+ u(t)&amp;=K_1 &amp;\implies &amp;y_P(t)=K_2\\
+ u(t)&amp;=K_1\sin(wt+\phi_1) &amp;\implies &amp;y_P(t)=K_2\sin(wt+\phi_2)\\
+ u(t)&amp;=K_1e^{\lambda t} &amp;\implies &amp;y_P(t)=K_2e^{\lambda t}
+ \end{align*}
+ \end{split}\]</div>
+<p>En caso de que <span class="math notranslate nohighlight">\(u(t)\)</span> sea una función no senoidal periódicas, las podemos descomponer según <strong>serie</strong> de Fourier y, aplicando linealidad, obtener la solución de la ecuación particular por superposición.</p>
+</section>
+<section id="conclusion">
+<h4>Conclusión<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h4>
+<p>Podemos notar que la respuesta del sistema siempre es una suma de funciones exponenciales y senoidales de distintas frecuencias:</p>
+<ul class="simple">
+<li><p>algunas frecuencias serán dependientes del sistema (solución homogénea)</p></li>
+<li><p>algunas frecuencias serán dependientes de la entrada (solución particular)</p></li>
+</ul>
+<p>La principal herramienta para estudiar la composición armónica de una función no necesariamente periódica es la transformada de Fourier. Como las soluciones (respuesta) de nuestras ecuaciones (sistemas) son fundamentalmente funciones (señales) armónicas, es fácil entender la importancia del la transformada de Fourier.</p>
+<p>La desventaja de esta transformada es que «no captura» la información respecto a los transitorios, es decir respecto a las exponenciales. matemáticamente la solución a este problema se obtiene mediante la transformada de Laplace. Sin embargo, la gran ventaja de la transformada de Fourier de un sistema es que puede ser aproximada fácilmente a partir de muestras de la señal usando el algoritmo <code class="docutils literal notranslate"><span class="pre">fft</span></code>, mientras que la transformada de Laplace no tiene forma de obtenerse numéricamente a partir de muestras de la señal.</p>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./sources/diapo_sistemas"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../diapos1/diapos1.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Diapositivas clase 1</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas">Sistemas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplos-de-sistema">Ejemplos de sistema</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sistema-de-calefaccion-solar">Sistema de Calefacción Solar</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ecosistema">Ecosistema</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-de-analisis-entrada-salida">Ejercicio de análisis entrada/salida</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#caracterizacion-de-sistemas">Caracterización de sistemas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linealidad">Linealidad</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invariancia-en-el-tiempo">Invariancia en el tiempo</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#principio-de-estacionariedad-o-invariancia-en-el-tiempo">Principio de estacionariedad o invariancia en el tiempo</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-estaticos-y-dinamicos">Sistemas Estáticos y Dinámicos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-causales-y-no-causales">Sistemas Causales y No causales</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-clasificacion-de-sistemas">Ejercicio clasificación de sistemas</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#representacion-matematica-de-los-sistemas-dinamicos">Representación matemática de los sistemas dinámicos</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion-de-la-ecuacion-homogenea">Solución de la ecuación homogénea</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solucion-particular">Solución particular</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Somebody
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

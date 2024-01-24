@@ -103,6 +103,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="canonical" href="https://gonmolina.github.io/dsp_book/sources/diapos1/diapos1.html" />
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="next" title="Sistemas dinámicos" href="../diapo_sistemas/diapo_sistemas.html" />
     <link rel="prev" title="Introducción a SymPy" href="../python/intro_sympy.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -217,6 +218,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Muestreo de señales</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Diapositivas clase 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../diapo_sistemas/diapo_sistemas.html">Sistemas dinámicos</a></li>
 </ul>
 
     </div>
@@ -544,7 +546,7 @@ document.write(`
 <p>Realizo la figura de la señal. Uso opciones de <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> no tan parecidas a las de <code class="docutils literal notranslate"><span class="pre">Matlab</span></code>, pero que dan mucho mejor control sobre la figura.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/6db6a30131ea56cec3e1dfb8f280c151aa7c6332ef17fe648444ede0add616e5.png" src="../../_images/6db6a30131ea56cec3e1dfb8f280c151aa7c6332ef17fe648444ede0add616e5.png" />
+<img alt="../../_images/208b1111f6e4df48906e01dab4d83a876fa66e1e2737247170f22364e9ebe488.png" src="../../_images/208b1111f6e4df48906e01dab4d83a876fa66e1e2737247170f22364e9ebe488.png" />
 </div>
 </div>
 <p>Ahora veamos qué sucede si digitalizamos la señal. Por ahora suponemos que no perdemos precisión pero sí resolución temporal. En este caso la frecuencia de muestreo, f sub d, es de 4 muestras por cada 10 segundo. Las muestras en Sd las obtenemos mediante la función <code class="docutils literal notranslate"><span class="pre">interp1</span></code>, que en realidad es excesivamente costosa para lo que estamos haciendo pero en este caso estoy sacrificando eficiencia para ser mas claro, creo. Eso nos da unos pocos puntos por ciclo de la frecuencia mas alta (6), pero más que suficientes para seguir la evolución de la señal. Obviamente parte del ruido blanco sigue existiendo en la medición, ya que ninguno de los puntos estará exactamente sobre la señal pura que obtendríamos sin agregar el ruido en sa.</p>
@@ -565,10 +567,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f3500ed1b20&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7efd75a53950&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/2a70f4f0d57f2f1fb8e99a20dbde18776556eb8e9118d66e3fee733505783179.png" src="../../_images/2a70f4f0d57f2f1fb8e99a20dbde18776556eb8e9118d66e3fee733505783179.png" />
+<img alt="../../_images/c2aaf76be2a3249d19bceea5ed4e3cb6942af3e213b2d18a1208f62ec500b17b.png" src="../../_images/c2aaf76be2a3249d19bceea5ed4e3cb6942af3e213b2d18a1208f62ec500b17b.png" />
 </div>
 </div>
 <p>Genero una función de interpolación 1d lineal y le aplico los puntos de la señal original.</p>
@@ -582,7 +584,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/be4e063b2422cc8d47653a6c206e247543ad3f2ce9909c6db307c91653f5181e.png" src="../../_images/be4e063b2422cc8d47653a6c206e247543ad3f2ce9909c6db307c91653f5181e.png" />
+<img alt="../../_images/d87bdb40d59cabdd65f8c559496e48a7cfac8644f7df5c11a7ef821a4b8d57cc.png" src="../../_images/d87bdb40d59cabdd65f8c559496e48a7cfac8644f7df5c11a7ef821a4b8d57cc.png" />
 </div>
 </div>
 <p>Ahora si continuamos reduciendo la frecuencia de muestreo <code class="docutils literal notranslate"><span class="pre">fd</span></code> hasta hacerla 1, vemos que todos los puntos caen aproximadamente sobre la función senoidal correspondiente a la frecuencia más baja.</p>
@@ -606,10 +608,10 @@ Puesto de esta forma, un tanto aproximada, pareciera que la frecuencia de muestr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f3500f83dd0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7efd75ae7530&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/9227ca81c0a24f93d4a4f20bc0f13de0ec439b528121f0935e789039a8fb062d.png" src="../../_images/9227ca81c0a24f93d4a4f20bc0f13de0ec439b528121f0935e789039a8fb062d.png" />
+<img alt="../../_images/200b294c879609347b8390340e4072bb62f9f7bf4f364ececdb8fe5d75672f9d.png" src="../../_images/200b294c879609347b8390340e4072bb62f9f7bf4f364ececdb8fe5d75672f9d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -621,7 +623,7 @@ Puesto de esta forma, un tanto aproximada, pareciera que la frecuencia de muestr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/410c2e732108416636fcf18ede947fc3f6165212d9d69ccef901a3cb02592470.png" src="../../_images/410c2e732108416636fcf18ede947fc3f6165212d9d69ccef901a3cb02592470.png" />
+<img alt="../../_images/ec3e5b201ecbc765dbd93f0f4449c14e11142f1ddef8263db8960e9e98794b1f.png" src="../../_images/ec3e5b201ecbc765dbd93f0f4449c14e11142f1ddef8263db8960e9e98794b1f.png" />
 </div>
 </div>
 <p>En realidad el teorema de Nyquist-Shannon dice que la señal se puede recuperar de forma exacta si siendo:</p>
@@ -669,7 +671,7 @@ Puesto de esta forma, un tanto aproximada, pareciera que la frecuencia de muestr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/22ee5cdcda73238c83b0dd642145dee187b4ea00fab7c24e007196be7ab6c1d3.png" src="../../_images/22ee5cdcda73238c83b0dd642145dee187b4ea00fab7c24e007196be7ab6c1d3.png" />
+<img alt="../../_images/49b23e4543944560d5bc6d3de01d8313dfda513100435c748cf61ed516e9907f.png" src="../../_images/49b23e4543944560d5bc6d3de01d8313dfda513100435c748cf61ed516e9907f.png" />
 </div>
 </div>
 <p>Si bien los puntos se pueden ajustar bien mediante la señal original, obviamente, también se pueden ajustar mediante una nueva función compuesta por la frecuencia menor, de 0,05 Hz y otra menor a la original de 0,5 Hz. De hecho la nueva componente es menor también a la frecuencia de Nyquist y es f1 – fd.</p>
@@ -724,6 +726,15 @@ Puesto de esta forma, un tanto aproximada, pareciera que la frecuencia de muestr
         <p class="prev-next-subtitle">anterior</p>
         <p class="prev-next-title">Introducción a SymPy</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="../diapo_sistemas/diapo_sistemas.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Sistemas dinámicos</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
