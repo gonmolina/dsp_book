@@ -11,4 +11,7 @@ parts:
   chapters:
   - file: sources/diapos1/diapos1
   - file: sources/diapo_sistemas/diapo_sistemas
-
+- caption: "Filtros"
+  chapters:
+  - file: sources/filtros/filtros_analogicos.md
+  
