@@ -1,0 +1,1044 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FILTROS &#8212; Laboratorio de Procesamiento digital de señales</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "gonmolina/dsp_book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../_static/translations.js?v=efdbd0b9"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sources/filtros/filtros_analogicos';</script>
+    <link rel="canonical" href="https://gonmolina.github.io/dsp_book/sources/filtros/filtros_analogicos.html" />
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+    <link rel="prev" title="Sistemas dinámicos" href="../diapo_sistemas/diapo_sistemas.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/dsp2.png" class="logo__image only-light" alt="Laboratorio de Procesamiento digital de señales - Home"/>
+    <script>document.write(`<img src="../../_static/dsp2.png" class="logo__image only-dark" alt="Laboratorio de Procesamiento digital de señales - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro/intro.html">
+                    Material de la mateira de Laboratorio de Procesamiento Digital de Señales
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción a Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/guia_de_instalacion.html">Guía de instalación de las herramientas computacionales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/intro_python.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/intro_matplotlib.html">Figuras en Python - MATPLOTLIB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/intro_sympy.html">Introducción a SymPy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Muestreo de señales</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../diapos1/diapos1.html">Diapositivas clase 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../diapo_sistemas/diapo_sistemas.html">Sistemas dinámicos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtros</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">FILTROS</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gonmolina/dsp_book/blob/main/sources/filtros/filtros_analogicos.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/gonmolina/dsp_book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gonmolina/dsp_book/edit/main/sources/filtros/filtros_analogicos.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gonmolina/dsp_book/issues/new?title=Issue%20on%20page%20%2Fsources/filtros/filtros_analogicos.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/sources/filtros/filtros_analogicos.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Descargar archivo de cuaderno"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/sources/filtros/filtros_analogicos.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>FILTROS</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temario">Temario</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformada-de-laplace">Transformada de Laplace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-de-transformadas-de-laplace">Tabla de transformadas de Laplace</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades">Propiedades</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linealidad">Linealidad</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#primer-teorema-de-traslacion">Primer teorema de traslación</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#segundo-teorema-de-traslacion">Segundo teorema de traslación</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transformada-de-una-derivada-de-primer-orden">Transformada de una derivada de primer orden</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transformada-de-una-derivada-de-segundo-orden">Transformada de una derivada de segundo orden</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transformada-de-una-derivada-de-orden-n">Transformada de una derivada de orden n</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transformada-de-la-integral-de-una-funcion">Transformada de la Integral de una función</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-final-de-una-funcion-teorema-de-valor-final">Valor final de una función: teorema de valor final</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-inicial-de-una-funcion-teorema-de-valor-inicial">Valor inicial de una función: teorema de valor inicial</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-transferencia">Función transferencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-5-minutos">Ejercicio (5 minutos)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anti-tranformada-de-laplace-de-la-funcion-transferencia">Anti tranformada de Laplace de la función transferencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-de-simulacion-del-sistema-mecanico">Ejercicio de simulación del sistema mecánico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejercicio (5 minutos)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-15-minutos">Ejercicio (15 minutos)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtros-analogicos">Filtros analógicos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-filtros-segun-su-rango-de-frecuencias-de-paso">Tipos de filtros según su rango de frecuencias de paso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-los-filtros">Parámetros de los filtros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-filtros-segun-su-forma-en-la-banda-de-paso-y-de-rechazo">Tipos de filtros según su forma en la banda de paso y de rechazo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramienta-de-diseno-de-filtro">Herramienta de diseño de filtro</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo">Ejemplo</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="filtros">
+<h1>FILTROS<a class="headerlink" href="#filtros" title="Link to this heading">#</a></h1>
+<section id="temario">
+<h2>Temario<a class="headerlink" href="#temario" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Transformada de Laplace</p></li>
+<li><p>Funciones transferencias</p></li>
+<li><p>Caracterización de los filtros</p>
+<ol class="arabic simple">
+<li><p>Pasa-bajos</p></li>
+<li><p>Pasa-altos</p></li>
+<li><p>Pasa-banda</p></li>
+<li><p>Elimina-banda</p></li>
+<li><p>Pasa-todo</p></li>
+</ol>
+</li>
+<li><p>Tipos de filtros con LTI. Butterworth, Chebyshev I y II, Elípticos (Cauer), Bessel</p></li>
+<li><p>Obtención de la función transferencia con SciPy  (<code class="docutils literal notranslate"><span class="pre">sicpy.signal</span></code>)</p></li>
+<li><p>Simulación del filtro en Python</p></li>
+<li><p>Presentación de herramienta web para diseño de filtros electrónicos activos: <a class="reference external" href="https://webench.ti.com/filter-design-tool/">Web Bench Filter Design Tool</a>.</p></li>
+</ol>
+</section>
+<section id="transformada-de-laplace">
+<h2>Transformada de Laplace<a class="headerlink" href="#transformada-de-laplace" title="Link to this heading">#</a></h2>
+<p>Hasa el momento en la materia estuvimos trabajando con la transformada de Fourier.
+A esta transformada la podemos pensar como la correlación de la señal que se desea transformar con senos y cosenos de diferentes frecuencias que hacemos variar entre <span class="math notranslate nohighlight">\(-\infty\)</span> e <span class="math notranslate nohighlight">\(\infty\)</span>.</p>
+<p>La principal desventaja de está transformada, por la características periódicas del seno y del coseno, es que no permite capturar las componentes transitorias de las señales.
+Para salvar esta dificultad se define la transformada de Laplace.
+Se define a transformada de Laplace <span class="math notranslate nohighlight">\(F(s)\)</span> de una función definida para <span class="math notranslate nohighlight">\(t\in\mathbb R \ge 0\)</span> como:</p>
+<div class="math notranslate nohighlight">
+\[F(s) = \int_{0}^{\infty} e^{-st}f(t)dt\]</div>
+<p>La función de tranformación anterior se la conoce como transformada unilateral de Laplace.</p>
+<p>Es importante notar que la transformada de Laplace es una generalización de la transformada de Fourier. Analizando la expresión anterior y sabiendo que la variable es un número complejo que podemos escribir como:</p>
+<div class="math notranslate nohighlight">
+\[s=\sigma  \pm j\omega\]</div>
+<p>podemos ver que si tomamos <span class="math notranslate nohighlight">\(\sigma=0\)</span> lo que tenemos es exactamente la transformada de Fourier.</p>
+</section>
+<section id="tabla-de-transformadas-de-laplace">
+<h2>Tabla de transformadas de Laplace<a class="headerlink" href="#tabla-de-transformadas-de-laplace" title="Link to this heading">#</a></h2>
+<p>Para funciones típicas, existen tablas de transformada de Laplace que nos permiten rápidamente ir del dominio <span class="math notranslate nohighlight">\(t\)</span> (en general tiempo) al dominio de Laplace <span class="math notranslate nohighlight">\(s\)</span>, que se lo conoce como dominio de frecuencia generalizada.</p>
+<p><img alt="Tabla de transformadas de Laplace" src="../../_images/bg2.png" /></p>
+<section id="propiedades">
+<h3>Propiedades<a class="headerlink" href="#propiedades" title="Link to this heading">#</a></h3>
+<p>La trasformada de Laplace tiene propiedades similares a la de la transformada de Fourier.</p>
+<p>Siendo <span class="math notranslate nohighlight">\(\alpha\)</span>, <span class="math notranslate nohighlight">\(\beta\)</span> <span class="math notranslate nohighlight">\(\in\)</span> <span class="math notranslate nohighlight">\(\mathbb R\)</span> y <span class="math notranslate nohighlight">\(f(t)\)</span> <span class="math notranslate nohighlight">\(g(t)\)</span> dos funciones definidas para <span class="math notranslate nohighlight">\(t \ge 0\)</span> entonces la transformada de Laplace satisface las siguientes propiedades:</p>
+<section id="linealidad">
+<h4>Linealidad<a class="headerlink" href="#linealidad" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[\mathcal {L}\{\alpha f(t)+\beta g(t)\}=\alpha {\mathcal {L}}\{f(t)\}+\beta {\mathcal {L}}\{g(t)\}\]</div>
+</section>
+<section id="primer-teorema-de-traslacion">
+<h4>Primer teorema de traslación<a class="headerlink" href="#primer-teorema-de-traslacion" title="Link to this heading">#</a></h4>
+<p>Esta propiedad se obtiene aplicando la definición de transformada y a través del cambio de variable <span class="math notranslate nohighlight">\(u=s-a\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\mathcal {L}\{e^{at}f(t)\}=F(s-a)\]</div>
+</section>
+<section id="segundo-teorema-de-traslacion">
+<h4>Segundo teorema de traslación<a class="headerlink" href="#segundo-teorema-de-traslacion" title="Link to this heading">#</a></h4>
+<p>Esta propiedad se demuestra por definición y teniendo en cuenta la definición de la función escalón unitario</p>
+<div class="math notranslate nohighlight">
+\[\mathcal {L}\{f(t-a)u(t-a)\}=e^{-as}\mathcal {L}\{f\}\]</div>
+</section>
+<section id="transformada-de-una-derivada-de-primer-orden">
+<h4>Transformada de una derivada de primer orden<a class="headerlink" href="#transformada-de-una-derivada-de-primer-orden" title="Link to this heading">#</a></h4>
+<p><span class="math notranslate nohighlight">\(\mathcal{L}\left\{\dfrac{df(t)}{dt}\right\}=sF(s)-f(0)\)</span></p>
+</section>
+<section id="transformada-de-una-derivada-de-segundo-orden">
+<h4>Transformada de una derivada de segundo orden<a class="headerlink" href="#transformada-de-una-derivada-de-segundo-orden" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathcal{L} \left\{ \dfrac{d^2f(t)}{dt^2} \right\}=s^2F(s)-sf(0)-f'(0)\)</span></p></li>
+</ul>
+</section>
+<section id="transformada-de-una-derivada-de-orden-n">
+<h4>Transformada de una derivada de orden n<a class="headerlink" href="#transformada-de-una-derivada-de-orden-n" title="Link to this heading">#</a></h4>
+<p><span class="math notranslate nohighlight">\(\mathcal{L} \left\{ \dfrac{d^nf(t)}{dt^n} \right\}= s^n F(s)- s^{n-1}f(0) - s^{n-2}f'(0) - \ldots - sf^{n-2}(0)-f^{n-1}(0)\)</span></p>
+</section>
+<section id="transformada-de-la-integral-de-una-funcion">
+<h4>Transformada de la Integral de una función<a class="headerlink" href="#transformada-de-la-integral-de-una-funcion" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[\mathcal{L} \left\{ \int_0^tf(\tau)d\tau \right\} =\dfrac{F(s)}{s}\]</div>
+</section>
+<section id="valor-final-de-una-funcion-teorema-de-valor-final">
+<h4>Valor final de una función: teorema de valor final<a class="headerlink" href="#valor-final-de-una-funcion-teorema-de-valor-final" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[f(\infty)=\lim_{s\rightarrow 0}sF(s)\]</div>
+</section>
+<section id="valor-inicial-de-una-funcion-teorema-de-valor-inicial">
+<h4>Valor inicial de una función: teorema de valor inicial<a class="headerlink" href="#valor-inicial-de-una-funcion-teorema-de-valor-inicial" title="Link to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[f(0)=\lim_{s\rightarrow \infty}sF(s)\]</div>
+<p>Usando la tabla anterior junto con las propiedades, podemos obtener rapidamente la transformada de Laplace de un conjunto muy grande de funciones temporales.</p>
+</section>
+</section>
+</section>
+<section id="funcion-transferencia">
+<h2>Función transferencia<a class="headerlink" href="#funcion-transferencia" title="Link to this heading">#</a></h2>
+<p>Para definir la función transferencia vamos a comenzar estudiando un ejemplo mecánico simple: un sistema lineal de una masa y un resorte. Vamos a estudiar la velocidad de la masa según una entrada fuerza aplicada a la misma.</p>
+<p><img alt="Sistema masa resorte" src="../../_images/ejemplo_sis_mec.png" /></p>
+<p>Las ecuaciones que gobiernan el movimiento de la masa son principalmente las leyes de Newton:</p>
+<div class="math notranslate nohighlight">
+\[f(t) - bv(t) - kx(t) = ma(t)\]</div>
+<p>A esta misma ecuación la podemos expresar como:</p>
+<div class="math notranslate nohighlight">
+\[ f(t) - b\frac{\text{d}x(t)}{dt} - kx(t) = m \frac{\text{d}^2x(t)}{dt^2} \]</div>
+<p>donde <span class="math notranslate nohighlight">\(f(t)\)</span> es la fuerza aplicada a la masa (entrada del sistema) y <span class="math notranslate nohighlight">\(x(t)\)</span> es la posición de la masa (salida del sistema).</p>
+<p>Obtener la respuesta temporal del sistema a partir de esta ecuación puede resultar complejo ya que requiere resolver la ecuación diferencial anterior. Por otro lado, es difícil de estudiar en forma genérica que pasa para diferentes funciones de la entrada <span class="math notranslate nohighlight">\(f(t)\)</span>.
+Aquí es donde la transformada de Laplace comienza a ser de gran utilidad.</p>
+<p>Suponiendo que existen las transformadas de Laplace de <span class="math notranslate nohighlight">\(f(t)\)</span> y <span class="math notranslate nohighlight">\(x(t)\)</span> y que las mismas son <span class="math notranslate nohighlight">\(F(s)\)</span> y <span class="math notranslate nohighlight">\(X(s)\)</span> respectivamente, podemos escribir la misma ecuación anterior en el dominio transformado de Laplace utilizando las propiedades vistas anteriormente:</p>
+<div class="math notranslate nohighlight">
+\[ F(s) - b sX(s) - kX(s) = m s^2 X(s)\]</div>
+<p>Podemos notar que pasamos de una ecuación diferencial en el dominio temporal a una ecuación algebraica en el dominio temporal. Además, a la ecuación anterior la podemos reescribir como:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{X(s)}{F(s)} = \frac{1}{ms^2+bs+k} \]</div>
+<p>Esta última ecuación es la descripción del sistema escrita como la relación entre la salida y la entrada del sistema en el dominio transformado de Laplace. A esta realación de la conoce como <strong>función transferencia</strong> del sistema.</p>
+</section>
+<section id="ejercicio-5-minutos">
+<h2>Ejercicio (5 minutos)<a class="headerlink" href="#ejercicio-5-minutos" title="Link to this heading">#</a></h2>
+<p>Usando la tabla de propiedades, obtener la función transferencia del sistema si la salida es la velocidad <span class="math notranslate nohighlight">\(v(t)\)</span></p>
+</section>
+<section id="anti-tranformada-de-laplace-de-la-funcion-transferencia">
+<h2>Anti tranformada de Laplace de la función transferencia<a class="headerlink" href="#anti-tranformada-de-laplace-de-la-funcion-transferencia" title="Link to this heading">#</a></h2>
+<p>Por otro lado, dijimos que la transformada de Laplace es, en general, la transformada de señales temporales.
+Entonces, podríamos preguntarnos, ¿qué señal temporal es la antitransformada de la función transferencia?</p>
+<p>Para responder a esta pregunta lo que haremos es analizar que excitación se necesita el sistema para que la salida sea, en el dominio de Laplace, la función transferencia. Dejando la salida n función de la entrada, tenemos que:</p>
+<div class="math notranslate nohighlight">
+\[X(s)=\frac{1}{ms^2+bs}F(s)\]</div>
+<p>Si <span class="math notranslate nohighlight">\(F(s)\)</span> es 1 entonces la respuesta del sistema es la función transferencia. Ahora, de la tablas de transformadas de Laplace podemos ver que la señal temporal cuya transformada es 1 es el impulso unitario. Por lo tanto tenemos que:</p>
+<div class="math notranslate nohighlight">
+\[X_{\delta}(s)=\frac{1}{ms^2+bs}\]</div>
+<p>donde <span class="math notranslate nohighlight">\(X_{\delta}(s)\)</span> es la transformada de Laplace de la salida del sistema cuando la entada es un impulso unitario.</p>
+<p>Por lo tanto podemos decir que <strong>la función transferencia es la transformada de Laplace  de la respuesta al impulso de un sistema LTI</strong>.</p>
+</section>
+<section id="ejercicio-de-simulacion-del-sistema-mecanico">
+<h2>Ejercicio de simulación del sistema mecánico<a class="headerlink" href="#ejercicio-de-simulacion-del-sistema-mecanico" title="Link to this heading">#</a></h2>
+<p>El pauqete de control instalado con las herramientas del curso nos brinda la posibildad de implementar sistemas descriptos a partir de su función transferencia y simularlos frente a entradas.</p>
+<p>El paquete de control aprovecha la particularidad de que las funciones transferencias transferencias son, en general, relaciónes de polinomios en <span class="math notranslate nohighlight">\(s\)</span>, por lo tanto se definen con los coficientes del polinomio numerador y los coeficientes del polinomio numerador.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">control</span> <span class="kn">import</span> <span class="n">tf</span><span class="p">,</span> <span class="n">step_response</span>
+<span class="n">m</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">b</span><span class="o">=</span><span class="mf">0.2</span>
+<span class="n">k</span><span class="o">=</span><span class="mf">0.5</span>
+
+<span class="n">H</span><span class="o">=</span><span class="n">tf</span><span class="p">([</span><span class="mi">1</span><span class="p">],[</span><span class="n">m</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">k</span><span class="p">])</span> <span class="c1"># primer arg coef. de pol. den y seg arg coef. del pol. den.</span>
+<span class="n">H</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\frac{1}{s^2 + 0.2 s + 0.5}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">step_response</span><span class="p">(</span><span class="n">H</span><span class="p">)</span> <span class="c1"># simula al sistema anterior con una entrada escalón </span>
+                     <span class="c1"># unitario en t=0</span>
+<span class="n">r</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;control.timeresp.TimeResponseData at 0x7f395514e810&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>En <code class="docutils literal notranslate"><span class="pre">r</span></code> se encuentra la información relevante de la respuesta al escalón del este sistema. Si queremos graficar la señal de salida del sistema, luego del escalón podremos hacerlo usando <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Respuesta al escalón&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Tiempo [s]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Desplazamiento[m]&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/cf9d3ea29ccce38224782d7f7a4d1e004ff45f243714736a8b21a2bbb1d5aa20.png" src="../../_images/cf9d3ea29ccce38224782d7f7a4d1e004ff45f243714736a8b21a2bbb1d5aa20.png" />
+</div>
+</div>
+<p>Si se observa el código detenidamente podrán ver que la salida se usa con el indice [0,0]. Para entender esto veamos la forma que tiene el <code class="docutils literal notranslate"><span class="pre">y</span></code> de la respuesta al escalón.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1, 1, 196)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Podemos ver que el la respuesta tiene 3 dimensiones.
+En tercera dimensión se encuentran los puntos de la respuesta al escalón, las primeras dos dimensiones se usan en casos de que el sistema simulado tenga muchas entras/salidas.
+Con la primera dimensión se seleccion la salida, y con la segunda dimensión la entrada a la cual se aplica el escalón.
+En este caso como el sistema tiene solo una entrada y una salida debemos seleccionar obliagoriamente la salida 0 para la primer dimensión y la entrada 0 para la segunda dimensión.</p>
+</section>
+<section id="id1">
+<h2>Ejercicio (5 minutos)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Usando la función <code class="docutils literal notranslate"><span class="pre">impulse_response</span></code> graficar la respueta al impulso (o lo que es lo mismo, la antitrasformada de la función transferencia)</p>
+</section>
+<section id="ejercicio-15-minutos">
+<h2>Ejercicio (15 minutos)<a class="headerlink" href="#ejercicio-15-minutos" title="Link to this heading">#</a></h2>
+<p>Obtener la transformada de Laplace del sistema del pizarrón sabiendo que la entrada de la tensión <span class="math notranslate nohighlight">\(u(t)\)</span> en bornes de la fuente, la salida es la tensión <span class="math notranslate nohighlight">\(y(t)\)</span> en bornes de la resistencia, y que la ecuación que gobierna la tensión en un capacitor es</p>
+<div class="math notranslate nohighlight">
+\[v_c(t) = \frac{1}{C}\int_0^ti_C(t)dt\]</div>
+<p>y la tensión en la resistencia es</p>
+<div class="math notranslate nohighlight">
+\[v_R(t)=i_R(t)R\]</div>
+<p>Ayudas:</p>
+<ol class="arabic simple">
+<li><p>Aplicar ley de Kirchoff de tensiones teniendo en cuenta que <span class="math notranslate nohighlight">\(i_R(t) = i_C(t)\)</span> escribiendola <span class="math notranslate nohighlight">\(u(t)= v_c(t)+v_R(t)\)</span></p></li>
+<li><p>Transformar por Laplace la ecuación anterior y obtener la función transferencia <span class="math notranslate nohighlight">\(\frac{I_R(s)}{U(s)}\)</span></p></li>
+<li><p>A partir de la ecuación anterior se puede obtener <span class="math notranslate nohighlight">\(\frac{V_C(s)}{U(s)}\)</span> y <span class="math notranslate nohighlight">\(\frac{V_R(s)}{U(s)}\)</span></p></li>
+</ol>
+</section>
+<section id="filtros-analogicos">
+<h2>Filtros analógicos<a class="headerlink" href="#filtros-analogicos" title="Link to this heading">#</a></h2>
+<p>Vamos a describir las características de los tipos de filtros más habituales.
+Por otra parte, un cierto conocimiento de filtrado analógico es necesario para diseñar las etapas de adquisición (filtros antialising) y reproducción (filtros de reconstrucción) en sistemas de procesamiento digital.
+Se distinguen por la caída de la respuesta en frecuencia en la primera década, desde la frecuencia de corte y en el retardo de grupo.
+En la siguiente figura mostramos las respuestas en frecuencia que definen la los filtros analógicos más empleados.</p>
+<p>En general, para poder sintetizar un filtro análogico, primero vamos a obtener su función transferencia.
+Según los objetivos del filtro existen distintos tipos entre los cuales podemos elegir para obtener la función transferencia.</p>
+</section>
+<section id="tipos-de-filtros-segun-su-rango-de-frecuencias-de-paso">
+<h2>Tipos de filtros según su rango de frecuencias de paso<a class="headerlink" href="#tipos-de-filtros-segun-su-rango-de-frecuencias-de-paso" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>pasa-bajos: permite el paso de bajas frecuencias eliminando las altas</p></li>
+<li><p>pasa-altos: permite el paso de las altes frecuencias elimando las altas</p></li>
+<li><p>pasa-banda: permite el paso de un rango de frencuencias, elimando las altas y las bajas</p></li>
+<li><p>elimina-banda: rechaza un rango de frecuencias, permitiendo el paso de frecuencias altas y bajas</p></li>
+<li><p>pasa-todos: son filtro que lo que buscar es modificar la fase más que la ganancia del sistema.</p></li>
+</ul>
+</section>
+<section id="parametros-de-los-filtros">
+<h2>Parámetros de los filtros<a class="headerlink" href="#parametros-de-los-filtros" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>frecuencia de corte: frecuencia a la cual la ganancia cae 3 db respecto a la ganancia en la freuncia de paso: (frecuencia infinita para el pasa alto, frecuencia 0 para el pasa bajo y frecuencia media para el pasa banda)</p></li>
+<li><p>ancho de banda: tiene sentido su definición para el pasa-banda y es la resta entre la frecuencia de corte superior y la inferior del filtro. En un pasa-bajos el ancho de banda es la frecuencia de corte del sistema.</p></li>
+<li><p>atenuación mínima: en general se requiere una atenuación mínima en un rango de frecuencias determinado en la banda de rechazo. Por ejemplo para un filtro pasabajos de frecuencia de corte 100 Hz se le puede pedir una atenuación (inversa de la ganancia) mínima de 100 para frecuencias mayores a 500 Hz.</p></li>
+</ul>
+</section>
+<section id="tipos-de-filtros-segun-su-forma-en-la-banda-de-paso-y-de-rechazo">
+<h2>Tipos de filtros según su forma en la banda de paso y de rechazo<a class="headerlink" href="#tipos-de-filtros-segun-su-forma-en-la-banda-de-paso-y-de-rechazo" title="Link to this heading">#</a></h2>
+<p><img alt="Tipos de filtro según su forma" src="../../_images/tipos_filtros.png" /></p>
+<ul class="simple">
+<li><p>Filtro de butterworth: Respuesta maximamente plana en la banda de paso y en la banda de eliminación.</p></li>
+<li><p>Filtro de   filtros Tchebyshev tipo I: consiguen una caída más abrupta a frecuencias bajas en base a permitir un rizado de la respuesta en frecuencia en alguna de las bandas:</p>
+<ul>
+<li><p>Son filtros solo polos</p></li>
+<li><p>Presentan rizado constante en la banda pasante</p></li>
+<li><p>Presentan una caída monotónica en la banda no pasante</p></li>
+</ul>
+</li>
+</ul>
+<ul class="simple">
+<li><p>Filtro de filtros Tchebyshev tipo II: consiguen una caída más abrupta a frecuencias bajas en base a permitir un rizado de la respuesta en frecuencia en alguna de las bandas:</p>
+<ul>
+<li><p>Son filtros polos y ceros</p></li>
+<li><p>Presentan rizado constante en la banda atenuación</p></li>
+<li><p>Presentan una caída monotónica en la banda de paso</p></li>
+</ul>
+</li>
+<li><p>Filtro de Cauer: consiguen una caída más abrupta en base a permitir rizados constantes en ambas bandas.</p></li>
+<li><p>Filtro de Bessel: son filtros solo polos que no pretenden optimizar la anchura de la zona de transición sino asegurar fase lineal en toda la bandas pasante, ya que los filtros anteriores la degradaban progresivamente con la frecuencia.</p></li>
+</ul>
+</section>
+<section id="herramienta-de-diseno-de-filtro">
+<h2>Herramienta de diseño de filtro<a class="headerlink" href="#herramienta-de-diseno-de-filtro" title="Link to this heading">#</a></h2>
+<p>El paquete de <code class="docutils literal notranslate"><span class="pre">scipy</span></code> de Python cuenta con varias herramientas para el diseño de filtros dentro del módulo <code class="docutils literal notranslate"><span class="pre">signal</span></code>.</p>
+<p>Vamos a mostrar aquí las funciones para un filtro butterworth:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.signal.buttord</span></code>: sirve para obtener el orden del filtro de butterwoth que cumple con los requerimientos en la banda de paso y en la banda de rechazo. Toma como argumento las banda de paso de y rechazo y las ganancias de para esas bandas.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.signal.butt</span></code>: sirve para obtener el filtro a partir de las frecuecnias de corte y el orden obtenido con la función anterior.</p></li>
+</ul>
+<p>El mismo par de funciones anteriores se puede encontrar para los otros tipos de filtros: Cauer, Chebyshev I y II, y Bessel.</p>
+<p>Otras dos funciones útiles par el diseño de filtros pueden ser:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.signal.iirdesign</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.signal.iirfilter</span></code></p></li>
+</ul>
+<p>Todas estas funciones están pensadas para obtener la función transferencia de un filtro, pero se utilizan de manera diferente. Siempre es conveniente chuequear la documentación de <code class="docutils literal notranslate"><span class="pre">scipy.signal</span></code> al respecto.</p>
+<section id="ejemplo">
+<h3>Ejemplo<a class="headerlink" href="#ejemplo" title="Link to this heading">#</a></h3>
+<p>Supongamos que queremos realizar un filtro pasa-banda con frecuencias de corte 100 y 500 rad/seg, con ganancia 1 en la banda de paso y una atenuación 20 para ganancias menores a 10 rad/seg y mayores 2500 rad/seg.</p>
+<p>Para estudiar este filtro voy a utilizar el paquete de control instalado con las herramientas dadas.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">control</span> <span class="kn">import</span> <span class="n">tf</span><span class="p">,</span> <span class="n">bode</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">iirdesign</span><span class="p">,</span> <span class="n">iirfilter</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="o">%</span><span class="k">matplotlib</span> widget
+
+<span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="o">=</span> <span class="n">iirdesign</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2500</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;butter&#39;</span><span class="p">,</span> <span class="s1">&#39;ba&#39;</span><span class="p">)</span>
+<span class="n">G</span><span class="o">=</span><span class="n">tf</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="n">G</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\frac{3.144 \times 10^{5} s^2}{s^4 + 793 s^3 + 4.144 \times 10^{5} s^2 + 3.965 \times 10^{7} s + 2.5 \times 10^{9}}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="o">=</span> <span class="n">iirdesign</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2500</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;butter&#39;</span><span class="p">,</span> <span class="s1">&#39;zpk&#39;</span><span class="p">)</span>
+<span class="c1">#G=tf(b,a)</span>
+<span class="c1">#G</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">k</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.+0.j, 0.+0.j]),
+ array([ -51.34690369 -69.293686j  ,  -51.34690369 +69.293686j  ,
+        -345.16052154+465.80111124j, -345.16052154-465.80111124j]),
+ 314436.2765376437)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">control</span> <span class="kn">import</span> <span class="n">zpk</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Gzpk</span> <span class="o">=</span> <span class="n">zpk</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Gzpk</span><span class="o">.</span><span class="n">dcgain</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./sources/filtros"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../diapo_sistemas/diapo_sistemas.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Sistemas dinámicos</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#temario">Temario</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#transformada-de-laplace">Transformada de Laplace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tabla-de-transformadas-de-laplace">Tabla de transformadas de Laplace</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades">Propiedades</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#linealidad">Linealidad</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#primer-teorema-de-traslacion">Primer teorema de traslación</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#segundo-teorema-de-traslacion">Segundo teorema de traslación</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transformada-de-una-derivada-de-primer-orden">Transformada de una derivada de primer orden</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transformada-de-una-derivada-de-segundo-orden">Transformada de una derivada de segundo orden</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transformada-de-una-derivada-de-orden-n">Transformada de una derivada de orden n</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#transformada-de-la-integral-de-una-funcion">Transformada de la Integral de una función</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-final-de-una-funcion-teorema-de-valor-final">Valor final de una función: teorema de valor final</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-inicial-de-una-funcion-teorema-de-valor-inicial">Valor inicial de una función: teorema de valor inicial</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-transferencia">Función transferencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-5-minutos">Ejercicio (5 minutos)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anti-tranformada-de-laplace-de-la-funcion-transferencia">Anti tranformada de Laplace de la función transferencia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-de-simulacion-del-sistema-mecanico">Ejercicio de simulación del sistema mecánico</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Ejercicio (5 minutos)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-15-minutos">Ejercicio (15 minutos)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtros-analogicos">Filtros analógicos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-filtros-segun-su-rango-de-frecuencias-de-paso">Tipos de filtros según su rango de frecuencias de paso</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametros-de-los-filtros">Parámetros de los filtros</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tipos-de-filtros-segun-su-forma-en-la-banda-de-paso-y-de-rechazo">Tipos de filtros según su forma en la banda de paso y de rechazo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramienta-de-diseno-de-filtro">Herramienta de diseño de filtro</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo">Ejemplo</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Somebody
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="es" data-content_root="" >
+<html lang="es" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Introducción a SymPy &#8212; Laboratorio de Procesamiento digital de señales</title>
   
@@ -29,31 +28,29 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
-    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/clipboard.min.js"></script>
-    <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -88,15 +85,13 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script src="../../_static/translations.js"></script>
+    <script src="../../_static/translations.js?v=efdbd0b9"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'sources/python/intro_sympy';</script>
@@ -198,7 +193,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -219,6 +225,10 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../diapos1/diapos1.html">Diapositivas clase 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../diapo_sistemas/diapo_sistemas.html">Sistemas dinámicos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../filtros/filtros_analogicos.html">FILTROS</a></li>
 </ul>
 
     </div>
@@ -495,7 +505,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduccion-a-sympy">
-<h1>Introducción a SymPy<a class="headerlink" href="#introduccion-a-sympy" title="Permalink to this heading">#</a></h1>
+<h1>Introducción a SymPy<a class="headerlink" href="#introduccion-a-sympy" title="Link to this heading">#</a></h1>
 <p>`SymPy es una librería para Python de matemática simbólica. Para poder usarlo necesitamos importar <a class="reference external" href="http://docs.sympy.org/latest/index.html">el paquete SymPy</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -522,7 +532,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b06ccadbb8b275270af5859f42390027e9b46800f87efbd964dfbb61ebdc0ecf.png" src="../../_images/b06ccadbb8b275270af5859f42390027e9b46800f87efbd964dfbb61ebdc0ecf.png" />
+<img alt="../../_images/dc581022df9a9fdb43ef371bd86943e30c97a729ff0ebffe59f5b6fdf0417f47.png" src="../../_images/dc581022df9a9fdb43ef371bd86943e30c97a729ff0ebffe59f5b6fdf0417f47.png" />
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">SymPy</span></code> nos permite hacer muchas operaciones matemáticas que serían tediosas a
@@ -535,7 +545,7 @@ mano. Por ejemplo, podemos expandir un polinomio:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/37ce0e520154c90a8a28b818a31a07076757cca22a35b5f056285ed5d1c5f546.png" src="../../_images/37ce0e520154c90a8a28b818a31a07076757cca22a35b5f056285ed5d1c5f546.png" />
+<img alt="../../_images/c16d706d9e415b052563b2783916db0d369d1800c9ee758e6f10387e8f0bab12.png" src="../../_images/c16d706d9e415b052563b2783916db0d369d1800c9ee758e6f10387e8f0bab12.png" />
 </div>
 </div>
 <p>Observe lo que sucedió: definimos un nuevo nombre llamado <code class="docutils literal notranslate"><span class="pre">polynomial</span></code>
@@ -565,11 +575,11 @@ los paréntesis y presionando Mayúscula + Tabulador</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5df76cb56c153985924a646efdae3fd57213d98653287ecc865c4425f760ba53.png" src="../../_images/5df76cb56c153985924a646efdae3fd57213d98653287ecc865c4425f760ba53.png" />
+<img alt="../../_images/b5f2fd5438e1fa722b84ada5b5653db6af411609b703c807e54efb8d63f7cea6.png" src="../../_images/b5f2fd5438e1fa722b84ada5b5653db6af411609b703c807e54efb8d63f7cea6.png" />
 </div>
 </div>
 <section id="calculo">
-<h2>Cálculo<a class="headerlink" href="#calculo" title="Permalink to this heading">#</a></h2>
+<h2>Cálculo<a class="headerlink" href="#calculo" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">SymPy</span></code> sabe integrar y diferenciar.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -578,7 +588,7 @@ los paréntesis y presionando Mayúscula + Tabulador</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6e49c0182ddf42b743a494a883667dde0761c25b923d074c3c4005618cc3aadb.png" src="../../_images/6e49c0182ddf42b743a494a883667dde0761c25b923d074c3c4005618cc3aadb.png" />
+<img alt="../../_images/08f0e62c580daa14b9e4a466dce0431ef32d92ca876d4f3f539a1fabb221be98.png" src="../../_images/08f0e62c580daa14b9e4a466dce0431ef32d92ca876d4f3f539a1fabb221be98.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -588,7 +598,7 @@ los paréntesis y presionando Mayúscula + Tabulador</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2857471f9de0af827803d6f31f73d78aa585bdc6e100a188fdf9c22a1a65977e.png" src="../../_images/2857471f9de0af827803d6f31f73d78aa585bdc6e100a188fdf9c22a1a65977e.png" />
+<img alt="../../_images/4dd3dd3b93f0b365ad7888a60ee2860acb77d36fc16f835a04f1e69668b53eea.png" src="../../_images/4dd3dd3b93f0b365ad7888a60ee2860acb77d36fc16f835a04f1e69668b53eea.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -599,7 +609,7 @@ los paréntesis y presionando Mayúscula + Tabulador</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5598d645e0dcf287190d285cb22c19dbda3104f24b69a2a985d412b37f57521e.png" src="../../_images/5598d645e0dcf287190d285cb22c19dbda3104f24b69a2a985d412b37f57521e.png" />
+<img alt="../../_images/1665337c9f79e99db400181e677d2cfb47fefb49a5433df43598cb88693d9bfa.png" src="../../_images/1665337c9f79e99db400181e677d2cfb47fefb49a5433df43598cb88693d9bfa.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -611,12 +621,12 @@ los paréntesis y presionando Mayúscula + Tabulador</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/43069f8e2aea52da7f6f4687a661b79486e698c2bd735318bd198882711822dc.png" src="../../_images/43069f8e2aea52da7f6f4687a661b79486e698c2bd735318bd198882711822dc.png" />
+<img alt="../../_images/d8ad6a5019f875378484aa29e86883430dac753e6bde6697d7a31cabb8ed400e.png" src="../../_images/d8ad6a5019f875378484aa29e86883430dac753e6bde6697d7a31cabb8ed400e.png" />
 </div>
 </div>
 </section>
 <section id="limites">
-<h2>Límites<a class="headerlink" href="#limites" title="Permalink to this heading">#</a></h2>
+<h2>Límites<a class="headerlink" href="#limites" title="Link to this heading">#</a></h2>
 <p>Podemos evaluar los límites usando <code class="docutils literal notranslate"><span class="pre">SymPy</span></code>, incluso para límites «interesantes»
 donde necesitaríamos la regla de L’Hopital</p>
 <div class="cell docutils container">
@@ -626,12 +636,12 @@ donde necesitaríamos la regla de L’Hopital</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/dcd2f30f571b7ebbd5b7d9c228b1434fb450a684ce0fa430049cb5067a9d8159.png" src="../../_images/dcd2f30f571b7ebbd5b7d9c228b1434fb450a684ce0fa430049cb5067a9d8159.png" />
+<img alt="../../_images/3939cca0310a84c51c3258bf6237cc3dd9e35b42353b56463211235c395cf095.png" src="../../_images/3939cca0310a84c51c3258bf6237cc3dd9e35b42353b56463211235c395cf095.png" />
 </div>
 </div>
 </section>
 <section id="aproximacion">
-<h2>Aproximación<a class="headerlink" href="#aproximacion" title="Permalink to this heading">#</a></h2>
+<h2>Aproximación<a class="headerlink" href="#aproximacion" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">SymPy</span></code> tiene soporte incorporado para la expansión de series de Taylor</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -643,7 +653,7 @@ donde necesitaríamos la regla de L’Hopital</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fe520d3dfc0b46a1168084ee080ab868430e126d548325cb91c22ff485893d06.png" src="../../_images/fe520d3dfc0b46a1168084ee080ab868430e126d548325cb91c22ff485893d06.png" />
+<img alt="../../_images/eb71e34a00efa3ea29c5673febf79471e14f51f4921984af987b69e9c5a2cfc5.png" src="../../_images/eb71e34a00efa3ea29c5673febf79471e14f51f4921984af987b69e9c5a2cfc5.png" />
 </div>
 </div>
 <p>Para eliminar el término de perdida use <code class="docutils literal notranslate"><span class="pre">.removeO()</span></code></p>
@@ -655,7 +665,7 @@ donde necesitaríamos la regla de L’Hopital</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5fa209d5b32b2d3e3e6a4f1503f168712a23ae8c1829ebc3e22e4733e2935e54.png" src="../../_images/5fa209d5b32b2d3e3e6a4f1503f168712a23ae8c1829ebc3e22e4733e2935e54.png" />
+<img alt="../../_images/ff25db5a0f1fa492b12e90578b7f48a7c1b31d9789f5c8b98110017021858de8.png" src="../../_images/ff25db5a0f1fa492b12e90578b7f48a7c1b31d9789f5c8b98110017021858de8.png" />
 </div>
 </div>
 <p>También notará que el comportamiento predeterminado de <code class="docutils literal notranslate"><span class="pre">SymPy</span></code> es retener
@@ -668,7 +678,7 @@ representaciones exactas de ciertos números:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/acc6d1eee4058a20a69c442d8cddc9044d54e9d83eae385831e5496e766b9edd.png" src="../../_images/acc6d1eee4058a20a69c442d8cddc9044d54e9d83eae385831e5496e766b9edd.png" />
+<img alt="../../_images/cd9d9245825628676981c4f2a86c05db7a11379055886089637da8d8c31dca82.png" src="../../_images/cd9d9245825628676981c4f2a86c05db7a11379055886089637da8d8c31dca82.png" />
 </div>
 </div>
 <p>Para convertir las representaciones exactas de arriba en representaciones
@@ -685,7 +695,7 @@ con programas que no son de <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/93b10021481385146573a25a581aa99e1de2d2cfddb9756166afd89769835813.png" src="../../_images/93b10021481385146573a25a581aa99e1de2d2cfddb9756166afd89769835813.png" />
+<img alt="../../_images/64f555af4becb9bd285dd0f4760f9341bdabf4e441d850d0c6d58a4bb4a53e59.png" src="../../_images/64f555af4becb9bd285dd0f4760f9341bdabf4e441d850d0c6d58a4bb4a53e59.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -695,12 +705,12 @@ con programas que no son de <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a29d6a4717426b40c55e14d2cd0075da9d82a0c1ae7bd9cb02b093357f771934.png" src="../../_images/a29d6a4717426b40c55e14d2cd0075da9d82a0c1ae7bd9cb02b093357f771934.png" />
+<img alt="../../_images/b288fd2183999865d150fed3e8831a0ebd4a61be37cd86baf8b1026e2fc3d30c.png" src="../../_images/b288fd2183999865d150fed3e8831a0ebd4a61be37cd86baf8b1026e2fc3d30c.png" />
 </div>
 </div>
 </section>
 <section id="resolver-ecuaciones">
-<h2>Resolver ecuaciones<a class="headerlink" href="#resolver-ecuaciones" title="Permalink to this heading">#</a></h2>
+<h2>Resolver ecuaciones<a class="headerlink" href="#resolver-ecuaciones" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">SymPy</span></code> puede ayudarnos a resolver y manipular  ecuaciones utilizando la
 función <code class="docutils literal notranslate"><span class="pre">solve</span></code>. Como muchas funciones de resolución, encuentra ceros de una
 función, por lo que tenemos que reescribir las ecuaciones de igualdad para
@@ -720,7 +730,7 @@ que sean iguales a cero,</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/307e5e736b58fdb1f516394f16d7bf9902887e0e96663db3e15732738e4048de.png" src="../../_images/307e5e736b58fdb1f516394f16d7bf9902887e0e96663db3e15732738e4048de.png" />
+<img alt="../../_images/637d89b9b338c82653b50f99c079a39eb4edcd3a4c13853a5f13efd400104ad7.png" src="../../_images/637d89b9b338c82653b50f99c079a39eb4edcd3a4c13853a5f13efd400104ad7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -730,7 +740,7 @@ que sean iguales a cero,</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/6a342b56667f6cd97be499a902194cd01ae8594a86e154929c7faacda7201544.png" src="../../_images/6a342b56667f6cd97be499a902194cd01ae8594a86e154929c7faacda7201544.png" />
+<img alt="../../_images/50feb4e8c8a9140de5aadeffdb235ef290b6e0b4ba5267adf9bceed387397fd3.png" src="../../_images/50feb4e8c8a9140de5aadeffdb235ef290b6e0b4ba5267adf9bceed387397fd3.png" />
 </div>
 </div>
 <p>También podemos usar <code class="docutils literal notranslate"><span class="pre">sp.Eq</span></code> para construir ecuaciones</p>
@@ -742,7 +752,7 @@ que sean iguales a cero,</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/512bb0b61f1c0ef5687c5cb1cabc06e7861506144ca455a592ec4d5719a09da3.png" src="../../_images/512bb0b61f1c0ef5687c5cb1cabc06e7861506144ca455a592ec4d5719a09da3.png" />
+<img alt="../../_images/92c1c04ab0839d8878d37146ca89ea9f92e2dbf9f25d23ad13ecd518165ded9f.png" src="../../_images/92c1c04ab0839d8878d37146ca89ea9f92e2dbf9f25d23ad13ecd518165ded9f.png" />
 </div>
 </div>
 <p>La función roots nos dará también la multiplicidad de las raíces.</p>
@@ -754,7 +764,7 @@ que sean iguales a cero,</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a661b0494a4a4e7115fb798d8e29477ada2a7dbf3d01360ce73cb03069cde61d.png" src="../../_images/a661b0494a4a4e7115fb798d8e29477ada2a7dbf3d01360ce73cb03069cde61d.png" />
+<img alt="../../_images/def65f8306b54a12a484a67153f23e730f0e06f2c19ffaf2e20f25158ed87535.png" src="../../_images/def65f8306b54a12a484a67153f23e730f0e06f2c19ffaf2e20f25158ed87535.png" />
 </div>
 </div>
 <p>Esto no dice que la ecuación anterior tiene una solución -1 y otra solución
@@ -770,7 +780,7 @@ ecuaciones para resolver y pidiendo una lista de variables para resolver.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2da46a90fc78bed0c9940ad9ba254c563e9d4c088df0285003a1047d7979c8aa.png" src="../../_images/2da46a90fc78bed0c9940ad9ba254c563e9d4c088df0285003a1047d7979c8aa.png" />
+<img alt="../../_images/edbd36361a1cf25adab2578212ae460cde58d40cbed349713202107f1104783f.png" src="../../_images/edbd36361a1cf25adab2578212ae460cde58d40cbed349713202107f1104783f.png" />
 </div>
 </div>
 <p>Esto incluso funciona con variables simbólicas en las ecuaciones.</p>
@@ -784,7 +794,7 @@ ecuaciones para resolver y pidiendo una lista de variables para resolver.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/ce76cb2ee7d4541f681d1f08b723c3fed75e251df8138e199fb0346fbb2c7a58.png" src="../../_images/ce76cb2ee7d4541f681d1f08b723c3fed75e251df8138e199fb0346fbb2c7a58.png" />
+<img alt="../../_images/44e34934271b53b04376f35a27dcf249195979f8ae588f1f9e436756816860a6.png" src="../../_images/44e34934271b53b04376f35a27dcf249195979f8ae588f1f9e436756816860a6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -813,7 +823,7 @@ ecuaciones para resolver y pidiendo una lista de variables para resolver.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/16f003a824154378f367a14c64c9260d392009683ecf53bda55e0257a87bf5a0.png" src="../../_images/16f003a824154378f367a14c64c9260d392009683ecf53bda55e0257a87bf5a0.png" />
+<img alt="../../_images/381b78cea2ed4629eacd225f30bd70e4eba3e2cb466cf49ddc909ba610fa0945.png" src="../../_images/381b78cea2ed4629eacd225f30bd70e4eba3e2cb466cf49ddc909ba610fa0945.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -823,7 +833,7 @@ ecuaciones para resolver y pidiendo una lista de variables para resolver.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5fe5a82b4f03b25dd439c7c00b3513dcf76ed03f014fd73c7b0a052f871f1928.png" src="../../_images/5fe5a82b4f03b25dd439c7c00b3513dcf76ed03f014fd73c7b0a052f871f1928.png" />
+<img alt="../../_images/186d8ecf108e436580e5c198afc981c7614080b3114e117b430472404ed1e919.png" src="../../_images/186d8ecf108e436580e5c198afc981c7614080b3114e117b430472404ed1e919.png" />
 </div>
 </div>
 </section>
@@ -921,7 +931,7 @@ Por Somebody
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
