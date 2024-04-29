@@ -655,10 +655,10 @@ Aquí es donde la transformada de Laplace comienza a ser de gran utilidad.</p>
 Entonces, podríamos preguntarnos, ¿qué señal temporal es la antitransformada de la función transferencia?</p>
 <p>Para responder a esta pregunta lo que haremos es analizar que excitación se necesita el sistema para que la salida sea, en el dominio de Laplace, la función transferencia. Dejando la salida n función de la entrada, tenemos que:</p>
 <div class="math notranslate nohighlight">
-\[X(s)=\frac{1}{ms^2+bs}F(s)\]</div>
+\[X(s)=\frac{1}{ms^2+bs+k}F(s)\]</div>
 <p>Si <span class="math notranslate nohighlight">\(F(s)\)</span> es 1 entonces la respuesta del sistema es la función transferencia. Ahora, de la tablas de transformadas de Laplace podemos ver que la señal temporal cuya transformada es 1 es el impulso unitario. Por lo tanto tenemos que:</p>
 <div class="math notranslate nohighlight">
-\[X_{\delta}(s)=\frac{1}{ms^2+bs}\]</div>
+\[X_{\delta}(s)=\frac{1}{ms^2+bs+k}\]</div>
 <p>donde <span class="math notranslate nohighlight">\(X_{\delta}(s)\)</span> es la transformada de Laplace de la salida del sistema cuando la entada es un impulso unitario.</p>
 <p>Por lo tanto podemos decir que <strong>la función transferencia es la transformada de Laplace  de la respuesta al impulso de un sistema LTI</strong>.</p>
 </section>
@@ -692,7 +692,7 @@ Entonces, podríamos preguntarnos, ¿qué señal temporal es la antitransformada
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;control.timeresp.TimeResponseData at 0x7f395514e810&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;control.timeresp.TimeResponseData at 0x7f76e82e7680&gt;
 </pre></div>
 </div>
 </div>
