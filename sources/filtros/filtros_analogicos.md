@@ -196,11 +196,11 @@ Para responder a esta pregunta lo que haremos es analizar que excitación se nec
 
 +++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
 
-$$X(s)=\frac{1}{ms^2+bs}F(s)$$
+$$X(s)=\frac{1}{ms^2+bs+k}F(s)$$
 
 Si $F(s)$ es 1 entonces la respuesta del sistema es la función transferencia. Ahora, de la tablas de transformadas de Laplace podemos ver que la señal temporal cuya transformada es 1 es el impulso unitario. Por lo tanto tenemos que:
 
-$$X_{\delta}(s)=\frac{1}{ms^2+bs}$$
+$$X_{\delta}(s)=\frac{1}{ms^2+bs+k}$$
 
 donde $X_{\delta}(s)$ es la transformada de Laplace de la salida del sistema cuando la entada es un impulso unitario. 
 
