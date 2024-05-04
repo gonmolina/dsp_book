@@ -29,7 +29,7 @@ kernelspec:
     4. Elimina-banda
     5. Pasa-todo
 4. Tipos de filtros con LTI. Butterworth, Chebyshev I y II, Elípticos (Cauer), Bessel
-5. Obtención de la función transferencia con SciPy  (`sicpy.signal`)
+5. Obtención de la función transferencia de un filtro con SciPy  (`sicpy.signal`)
 6. Simulación del filtro en Python
 7. Presentación de herramienta web para diseño de filtros electrónicos activos: [Web Bench Filter Design Tool](https://webench.ti.com/filter-design-tool/).
 
@@ -37,30 +37,40 @@ kernelspec:
 
 ## Transformada de Laplace
 
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
+
 Hasa el momento en la materia estuvimos trabajando con la transformada de Fourier.
 A esta transformada la podemos pensar como la correlación de la señal que se desea transformar con senos y cosenos de diferentes frecuencias que hacemos variar entre $-\infty$ e $\infty$.
+
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
 
 La principal desventaja de está transformada, por la características periódicas del seno y del coseno, es que no permite capturar las componentes transitorias de las señales.
 Para salvar esta dificultad se define la transformada de Laplace.
 Se define a transformada de Laplace $F(s)$ de una función definida para $t\in\mathbb R \ge 0$ como:
 
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
+
 $$F(s) = \int_{0}^{\infty} e^{-st}f(t)dt$$
 
 La función de tranformación anterior se la conoce como transformada unilateral de Laplace.
 
-+++ {"editable": true, "slideshow": {"slide_type": ""}}
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-Es importante notar que la transformada de Laplace es una generalización de la transformada de Fourier. Analizando la expresión anterior y sabiendo que la variable es un número complejo que podemos escribir como:
+Analizando la expresión anterior y sabiendo que la variable $s$ es un número complejo que podemos escribir como:
 
 $$s=\sigma  \pm j\omega$$
 
-podemos ver que si tomamos $\sigma=0$ lo que tenemos es exactamente la transformada de Fourier.
+Podemos notar que la transformada de Laplace es una generalización de la transformada de Fourier tomando $\sigma=0$ .
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 ## Tabla de transformadas de Laplace
 
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
+
 Para funciones típicas, existen tablas de transformada de Laplace que nos permiten rápidamente ir del dominio $t$ (en general tiempo) al dominio de Laplace $s$, que se lo conoce como dominio de frecuencia generalizada.
+
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
 
 ![Tabla de transformadas de Laplace](bg2.png)
 
@@ -134,11 +144,11 @@ $$f(0)=\lim_{s\rightarrow \infty}sF(s)$$
 
 Usando la tabla anterior junto con las propiedades, podemos obtener rapidamente la transformada de Laplace de un conjunto muy grande de funciones temporales.
 
-+++ {"editable": true, "slideshow": {"slide_type": ""}}
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 ## Función transferencia
 
-+++ {"editable": true, "slideshow": {"slide_type": "notes"}}
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 Para definir la función transferencia vamos a comenzar estudiando un ejemplo mecánico simple: un sistema lineal de una masa y un resorte. Vamos a estudiar la velocidad de la masa según una entrada fuerza aplicada a la misma.
 
@@ -165,15 +175,19 @@ Aquí es donde la transformada de Laplace comienza a ser de gran utilidad.
 
 Suponiendo que existen las transformadas de Laplace de $f(t)$ y $x(t)$ y que las mismas son $F(s)$ y $X(s)$ respectivamente, podemos escribir la misma ecuación anterior en el dominio transformado de Laplace utilizando las propiedades vistas anteriormente:
 
-+++ {"editable": true, "slideshow": {"slide_type": ""}}
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 $$ F(s) - b sX(s) - kX(s) = m s^2 X(s)$$
 
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
+
 Podemos notar que pasamos de una ecuación diferencial en el dominio temporal a una ecuación algebraica en el dominio temporal. Además, a la ecuación anterior la podemos reescribir como:
+
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
 
 $$ \frac{X(s)}{F(s)} = \frac{1}{ms^2+bs+k} $$
 
-+++ {"editable": true, "slideshow": {"slide_type": "notes"}}
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
 
 Esta última ecuación es la descripción del sistema escrita como la relación entre la salida y la entrada del sistema en el dominio transformado de Laplace. A esta realación de la conoce como **función transferencia** del sistema.
 
@@ -183,13 +197,13 @@ Esta última ecuación es la descripción del sistema escrita como la relación 
 
 Usando la tabla de propiedades, obtener la función transferencia del sistema si la salida es la velocidad $v(t)$
 
-+++ {"editable": true, "slideshow": {"slide_type": ""}}
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 ## Anti tranformada de Laplace de la función transferencia
 
-+++ {"editable": true, "slideshow": {"slide_type": "slide"}}
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
 
-Por otro lado, dijimos que la transformada de Laplace es, en general, la transformada de señales temporales.
+Dijimos que la transformada de Laplace es, en general, la transformada de señales temporales.
 Entonces, podríamos preguntarnos, ¿qué señal temporal es la antitransformada de la función transferencia?
 
 Para responder a esta pregunta lo que haremos es analizar que excitación se necesita el sistema para que la salida sea, en el dominio de Laplace, la función transferencia. Dejando la salida n función de la entrada, tenemos que:
@@ -198,19 +212,31 @@ Para responder a esta pregunta lo que haremos es analizar que excitación se nec
 
 $$X(s)=\frac{1}{ms^2+bs+k}F(s)$$
 
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
+
 Si $F(s)$ es 1 entonces la respuesta del sistema es la función transferencia. Ahora, de la tablas de transformadas de Laplace podemos ver que la señal temporal cuya transformada es 1 es el impulso unitario. Por lo tanto tenemos que:
+
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 $$X_{\delta}(s)=\frac{1}{ms^2+bs+k}$$
 
-donde $X_{\delta}(s)$ es la transformada de Laplace de la salida del sistema cuando la entada es un impulso unitario. 
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
+
+donde $X_{\delta}(s)$ es la transformada de Laplace de la salida del sistema cuando la entada es un impulso unitario.
+
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
 
 Por lo tanto podemos decir que **la función transferencia es la transformada de Laplace  de la respuesta al impulso de un sistema LTI**.
 
-+++ {"editable": true, "slideshow": {"slide_type": ""}}
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 ## Ejercicio de simulación del sistema mecánico
 
-El pauqete de control instalado con las herramientas del curso nos brinda la posibildad de implementar sistemas descriptos a partir de su función transferencia y simularlos frente a entradas.
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
+
+El paquete de control instalado con las herramientas del curso nos brinda la posibildad de implementar sistemas descriptos a partir de su función transferencia y simularlos frente a entradas.
+
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
 
 El paquete de control aprovecha la particularidad de que las funciones transferencias transferencias son, en general, relaciónes de polinomios en $s$, por lo tanto se definen con los coficientes del polinomio numerador y los coeficientes del polinomio numerador.
 
@@ -218,7 +244,7 @@ El paquete de control aprovecha la particularidad de que las funciones transfere
 ---
 editable: true
 slideshow:
-  slide_type: ''
+  slide_type: slide
 ---
 from control import tf, step_response
 m=1
@@ -234,7 +260,7 @@ H
 editable: true
 raw_mimetype: ''
 slideshow:
-  slide_type: ''
+  slide_type: fragment
 ---
 r = step_response(H) # simula al sistema anterior con una entrada escalón 
                      # unitario en t=0
@@ -249,7 +275,7 @@ En `r` se encuentra la información relevante de la respuesta al escalón del es
 ---
 editable: true
 slideshow:
-  slide_type: ''
+  slide_type: skip
 ---
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -259,7 +285,7 @@ import matplotlib.pyplot as plt
 ---
 editable: true
 slideshow:
-  slide_type: ''
+  slide_type: slide
 ---
 plt.figure(figsize=(8,3))
 plt.plot(r.t, r.y[0,0])
@@ -269,7 +295,7 @@ plt.xlabel('Tiempo [s]')
 plt.ylabel('Desplazamiento[m]');
 ```
 
-+++ {"editable": true, "slideshow": {"slide_type": ""}}
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
 
 Si se observa el código detenidamente podrán ver que la salida se usa con el indice [0,0]. Para entender esto veamos la forma que tiene el `y` de la respuesta al escalón.
 
@@ -277,25 +303,25 @@ Si se observa el código detenidamente podrán ver que la salida se usa con el i
 ---
 editable: true
 slideshow:
-  slide_type: ''
+  slide_type: slide
 ---
 r.y.shape
 ```
 
-+++ {"editable": true, "slideshow": {"slide_type": ""}}
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
 
 Podemos ver que el la respuesta tiene 3 dimensiones.
 En tercera dimensión se encuentran los puntos de la respuesta al escalón, las primeras dos dimensiones se usan en casos de que el sistema simulado tenga muchas entras/salidas.
 Con la primera dimensión se seleccion la salida, y con la segunda dimensión la entrada a la cual se aplica el escalón.
 En este caso como el sistema tiene solo una entrada y una salida debemos seleccionar obliagoriamente la salida 0 para la primer dimensión y la entrada 0 para la segunda dimensión.
 
-+++ {"editable": true, "slideshow": {"slide_type": ""}}
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 ## Ejercicio (5 minutos)
 
 Usando la función `impulse_response` graficar la respueta al impulso (o lo que es lo mismo, la antitrasformada de la función transferencia)
 
-+++ {"editable": true, "slideshow": {"slide_type": ""}}
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 ## Ejercicio (15 minutos)
 
@@ -344,11 +370,11 @@ Según los objetivos del filtro existen distintos tipos entre los cuales podemos
 - ancho de banda: tiene sentido su definición para el pasa-banda y es la resta entre la frecuencia de corte superior y la inferior del filtro. En un pasa-bajos el ancho de banda es la frecuencia de corte del sistema.
 - atenuación mínima: en general se requiere una atenuación mínima en un rango de frecuencias determinado en la banda de rechazo. Por ejemplo para un filtro pasabajos de frecuencia de corte 100 Hz se le puede pedir una atenuación (inversa de la ganancia) mínima de 100 para frecuencias mayores a 500 Hz.
 
-+++
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 ## Tipos de filtros según su forma en la banda de paso y de rechazo
 
-+++ {"editable": true, "slideshow": {"slide_type": "slide"}}
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
 
 ![Tipos de filtro según su forma](tipos_filtros.png)
 
@@ -407,36 +433,8 @@ slideshow:
 ---
 from control import tf, bode
 from scipy.signal import iirdesign, iirfilter
-import matplotlib.pyplot as plt
-%matplotlib widget
 
 b,a= iirdesign([100, 500], [10, 2500], 1, 20, True, 'butter', 'ba')
 G=tf(b,a)
 G
-```
-
-```{code-cell} ipython3
-z,p,k= iirdesign([100, 500], [10, 2500], 1, 20, True, 'butter', 'zpk')
-#G=tf(b,a)
-#G
-```
-
-```{code-cell} ipython3
-z,p,k
-```
-
-```{code-cell} ipython3
-from control import zpk
-```
-
-```{code-cell} ipython3
-Gzpk = zpk(z,p,k)
-```
-
-```{code-cell} ipython3
-Gzpk.dcgain()
-```
-
-```{code-cell} ipython3
-
 ```

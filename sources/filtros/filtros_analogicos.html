@@ -547,7 +547,7 @@ document.write(`
 </ol>
 </li>
 <li><p>Tipos de filtros con LTI. Butterworth, Chebyshev I y II, Elípticos (Cauer), Bessel</p></li>
-<li><p>Obtención de la función transferencia con SciPy  (<code class="docutils literal notranslate"><span class="pre">sicpy.signal</span></code>)</p></li>
+<li><p>Obtención de la función transferencia de un filtro con SciPy  (<code class="docutils literal notranslate"><span class="pre">sicpy.signal</span></code>)</p></li>
 <li><p>Simulación del filtro en Python</p></li>
 <li><p>Presentación de herramienta web para diseño de filtros electrónicos activos: <a class="reference external" href="https://webench.ti.com/filter-design-tool/">Web Bench Filter Design Tool</a>.</p></li>
 </ol>
@@ -562,10 +562,10 @@ Se define a transformada de Laplace <span class="math notranslate nohighlight">\
 <div class="math notranslate nohighlight">
 \[F(s) = \int_{0}^{\infty} e^{-st}f(t)dt\]</div>
 <p>La función de tranformación anterior se la conoce como transformada unilateral de Laplace.</p>
-<p>Es importante notar que la transformada de Laplace es una generalización de la transformada de Fourier. Analizando la expresión anterior y sabiendo que la variable es un número complejo que podemos escribir como:</p>
+<p>Analizando la expresión anterior y sabiendo que la variable <span class="math notranslate nohighlight">\(s\)</span> es un número complejo que podemos escribir como:</p>
 <div class="math notranslate nohighlight">
 \[s=\sigma  \pm j\omega\]</div>
-<p>podemos ver que si tomamos <span class="math notranslate nohighlight">\(\sigma=0\)</span> lo que tenemos es exactamente la transformada de Fourier.</p>
+<p>Podemos notar que la transformada de Laplace es una generalización de la transformada de Fourier tomando <span class="math notranslate nohighlight">\(\sigma=0\)</span> .</p>
 </section>
 <section id="tabla-de-transformadas-de-laplace">
 <h2>Tabla de transformadas de Laplace<a class="headerlink" href="#tabla-de-transformadas-de-laplace" title="Link to this heading">#</a></h2>
@@ -651,7 +651,7 @@ Aquí es donde la transformada de Laplace comienza a ser de gran utilidad.</p>
 </section>
 <section id="anti-tranformada-de-laplace-de-la-funcion-transferencia">
 <h2>Anti tranformada de Laplace de la función transferencia<a class="headerlink" href="#anti-tranformada-de-laplace-de-la-funcion-transferencia" title="Link to this heading">#</a></h2>
-<p>Por otro lado, dijimos que la transformada de Laplace es, en general, la transformada de señales temporales.
+<p>Dijimos que la transformada de Laplace es, en general, la transformada de señales temporales.
 Entonces, podríamos preguntarnos, ¿qué señal temporal es la antitransformada de la función transferencia?</p>
 <p>Para responder a esta pregunta lo que haremos es analizar que excitación se necesita el sistema para que la salida sea, en el dominio de Laplace, la función transferencia. Dejando la salida n función de la entrada, tenemos que:</p>
 <div class="math notranslate nohighlight">
@@ -664,7 +664,7 @@ Entonces, podríamos preguntarnos, ¿qué señal temporal es la antitransformada
 </section>
 <section id="ejercicio-de-simulacion-del-sistema-mecanico">
 <h2>Ejercicio de simulación del sistema mecánico<a class="headerlink" href="#ejercicio-de-simulacion-del-sistema-mecanico" title="Link to this heading">#</a></h2>
-<p>El pauqete de control instalado con las herramientas del curso nos brinda la posibildad de implementar sistemas descriptos a partir de su función transferencia y simularlos frente a entradas.</p>
+<p>El paquete de control instalado con las herramientas del curso nos brinda la posibildad de implementar sistemas descriptos a partir de su función transferencia y simularlos frente a entradas.</p>
 <p>El paquete de control aprovecha la particularidad de que las funciones transferencias transferencias son, en general, relaciónes de polinomios en <span class="math notranslate nohighlight">\(s\)</span>, por lo tanto se definen con los coficientes del polinomio numerador y los coeficientes del polinomio numerador.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -692,7 +692,7 @@ Entonces, podríamos preguntarnos, ¿qué señal temporal es la antitransformada
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;control.timeresp.TimeResponseData at 0x7f76e82e7680&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;control.timeresp.TimeResponseData at 0x7fbc8260bc50&gt;
 </pre></div>
 </div>
 </div>
@@ -833,8 +833,6 @@ Según los objetivos del filtro existen distintos tipos entre los cuales podemos
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">control</span> <span class="kn">import</span> <span class="n">tf</span><span class="p">,</span> <span class="n">bode</span>
 <span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">iirdesign</span><span class="p">,</span> <span class="n">iirfilter</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="o">%</span><span class="k">matplotlib</span> widget
 
 <span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="o">=</span> <span class="n">iirdesign</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2500</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;butter&#39;</span><span class="p">,</span> <span class="s1">&#39;ba&#39;</span><span class="p">)</span>
 <span class="n">G</span><span class="o">=</span><span class="n">tf</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
@@ -845,56 +843,6 @@ Según los objetivos del filtro existen distintos tipos entre los cuales podemos
 <div class="cell_output docutils container">
 <div class="output text_latex math notranslate nohighlight">
 \[\frac{3.144 \times 10^{5} s^2}{s^4 + 793 s^3 + 4.144 \times 10^{5} s^2 + 3.965 \times 10^{7} s + 2.5 \times 10^{9}}\]</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="o">=</span> <span class="n">iirdesign</span><span class="p">([</span><span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2500</span><span class="p">],</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;butter&#39;</span><span class="p">,</span> <span class="s1">&#39;zpk&#39;</span><span class="p">)</span>
-<span class="c1">#G=tf(b,a)</span>
-<span class="c1">#G</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">k</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.+0.j, 0.+0.j]),
- array([ -51.34690369 -69.293686j  ,  -51.34690369 +69.293686j  ,
-        -345.16052154+465.80111124j, -345.16052154-465.80111124j]),
- 314436.2765376437)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">control</span> <span class="kn">import</span> <span class="n">zpk</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Gzpk</span> <span class="o">=</span> <span class="n">zpk</span><span class="p">(</span><span class="n">z</span><span class="p">,</span><span class="n">p</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Gzpk</span><span class="o">.</span><span class="n">dcgain</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.0
-</pre></div>
-</div>
 </div>
 </div>
 </section>
