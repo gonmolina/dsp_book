@@ -431,10 +431,58 @@ editable: true
 slideshow:
   slide_type: slide
 ---
-from control import tf, bode
+from control import tf, bode, forced_response
 from scipy.signal import iirdesign, iirfilter
 
-b,a= iirdesign([100, 500], [10, 2500], 1, 20, True, 'butter', 'ba')
+b,a= iirdesign([100, 500], [10, 2500], 3, 26, True, 'butter', 'ba')
 G=tf(b,a)
 G
+```
+
+```{code-cell} ipython3
+import numpy as np
+w = np.logspace(0, 4, 1001)
+```
+
+```{code-cell} ipython3
+w[-1]
+```
+
+```{code-cell} ipython3
+m=np.abs(G(1j*w))
+```
+
+```{code-cell} ipython3
+import matplotlib.pyplot as plt
+```
+
+```{code-cell} ipython3
+%matplotlib widget
+plt.figure()
+plt.semilogx(w, m)
+```
+
+```{code-cell} ipython3
+plt.grid()
+```
+
+```{code-cell} ipython3
+ws = 200
+tf= 2
+t=np.linspace(0, tf, 10001)
+
+u=np.sin(ws*t)
+```
+
+```{code-cell} ipython3
+y=forced_response(G,t,u)
+```
+
+```{code-cell} ipython3
+plt.figure()
+plt.plot(t, y.y[0])
+```
+
+```{code-cell} ipython3
+G.
 ```
