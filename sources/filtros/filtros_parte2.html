@@ -1,0 +1,791 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Filtros (parte 2) &#8212; Laboratorio de Procesamiento digital de señales</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script src="../../_static/documentation_options.js?v=78d55cf8"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "gonmolina/dsp_book");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script src="../../_static/translations.js?v=efdbd0b9"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sources/filtros/filtros_parte2';</script>
+    <link rel="canonical" href="https://gonmolina.github.io/dsp_book/sources/filtros/filtros_parte2.html" />
+    <link rel="index" title="Índice" href="../../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro/intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/dsp2.png" class="logo__image only-light" alt="Laboratorio de Procesamiento digital de señales - Home"/>
+    <script>document.write(`<img src="../../_static/dsp2.png" class="logo__image only-dark" alt="Laboratorio de Procesamiento digital de señales - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro/intro.html">
+                    Material de la mateira de Laboratorio de Procesamiento Digital de Señales
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción a Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/guia_de_instalacion.html">Guía de instalación de las herramientas computacionales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/intro_python.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/intro_matplotlib.html">Figuras en Python - MATPLOTLIB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/intro_sympy.html">Introducción a SymPy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Muestreo de señales</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../diapos1/diapos1.html">Diapositivas clase 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../diapo_sistemas/diapo_sistemas.html">Sistemas dinámicos</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtros</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="filtros_analogicos.html">FILTROS</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gonmolina/dsp_book/blob/main/sources/filtros/filtros_parte2.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/gonmolina/dsp_book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gonmolina/dsp_book/edit/main/sources/filtros/filtros_parte2.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/gonmolina/dsp_book/issues/new?title=Issue%20on%20page%20%2Fsources/filtros/filtros_parte2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/sources/filtros/filtros_parte2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Descargar archivo de cuaderno"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/sources/filtros/filtros_parte2.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Filtros (parte 2)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-de-la-respuesta-temporal-de-un-sistema-en-el-dominio-temporal">Cálculo de la respuesta temporal de un sistema en el dominio temporal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-respuesta-al-impulso-del-sistema-masa-resorte">Ejemplo respuesta al impulso del sistema masa resorte</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-1-polos-complejos-conjugados">Caso 1: Polos complejos conjugados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#para-el-caso-en-que-los-polos-sean-reales-simples">para el caso en que los polos sean reales simples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-en-tiempo-discreto">Sistemas en tiempo discreto</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="filtros-parte-2">
+<h1>Filtros (parte 2)<a class="headerlink" href="#filtros-parte-2" title="Link to this heading">#</a></h1>
+<p>En la primera parte del temario de filtros vimos una herramienta de modelado de sistemas dinámicos: <em>la función transferencia</em>. Vimos que la función trnasferencia la podemos pensar de dos formas:</p>
+<ul class="simple">
+<li><p>La transformada de Laplace de la salida del sistema sobre la transformada de Laplace de la entrada del sistema.</p></li>
+<li><p>La transformada de Laplace de la respuseta al impulso del sistema.</p></li>
+</ul>
+<p>Sin embargo, hemos dejado pasar una propiedad de la transformada de Laplace muy importante, pero que si hemos visto en la transformada de Fourier, y es la convolución. Está propiedad nos dice que la multiplicación de dos funciones en el dominio transformado de Laplace es la convolución en el dominio sin transformar. Es decir:</p>
+<div class="math notranslate nohighlight">
+\[G_1(s).G_2(s)=g_1(t) * g_2(t)=\int_0^t g(\tau)h_1(t-\tau)\text d\tau\]</div>
+<section id="calculo-de-la-respuesta-temporal-de-un-sistema-en-el-dominio-temporal">
+<h2>Cálculo de la respuesta temporal de un sistema en el dominio temporal<a class="headerlink" href="#calculo-de-la-respuesta-temporal-de-un-sistema-en-el-dominio-temporal" title="Link to this heading">#</a></h2>
+<p>Recordando lo visto en la clase anterior podemos notar que la salida del sistema en el dominio de Laplace lo podemos calcular como:</p>
+<div class="math notranslate nohighlight">
+\[Y(s)=H(s)U(s)\]</div>
+<p>donde <span class="math notranslate nohighlight">\(H(s)\)</span> es la función transferencia, <span class="math notranslate nohighlight">\(U(s)\)</span> es la transformada de Laplace de la entrada y <span class="math notranslate nohighlight">\(Y(s)\)</span> es la transformada de Laplace de la salida.</p>
+<p>Utilizando la propiedad de convolución se puede ver muy facilmente que:</p>
+<div class="math notranslate nohighlight">
+\[y(t) = h(t)*u(t)=\int_0^th(\tau)u(t-\tau)\text d \tau\]</div>
+<p>La salida de un sistema lineal e invariente en el tiempo se puede calcular como la convolución de la respuesta al impulso y la entrada aplicada.</p>
+<p>De esta manera podemos que el la respuesta al impulso también caraceriza la sistema, es decir, que conociendo la respuesta al impulso podemos obtener la respuesta a cualquier entrada arbitraría.</p>
+</section>
+<section id="ejemplo-respuesta-al-impulso-del-sistema-masa-resorte">
+<h2>Ejemplo respuesta al impulso del sistema masa resorte<a class="headerlink" href="#ejemplo-respuesta-al-impulso-del-sistema-masa-resorte" title="Link to this heading">#</a></h2>
+<p>Volvamos al sistema masa resorte anterior. Recordemos que la función trnasferencia es:</p>
+<div class="math notranslate nohighlight">
+\[X_{\delta}(s)=\frac{1}{ms^2+bs+k}\]</div>
+<p>Para poder antitransformarla facilmente, lo que se suele hacer es separar la función en fracciones simples. Para hacer estor debemos tener en cuenta la posición de los polos (ceros del denominador) del sistema. Podemos separar el problema en dos casos:</p>
+<ol class="arabic simple">
+<li><p>Si el sistema tiene polos complejos conjugados, entonces las freacciones simples se pueden escribir como:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[H(s)=\frac{As+B}{(s-(-\sigma+j\omega))(s-(-\sigma-j\omega))}\]</div>
+<ol class="arabic simple" start="2">
+<li><p>El caso de se tengan polos reales simples:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[H(s)=\frac{A}{s-p_1}+\frac{B}{s-p_2}\]</div>
+<p>Luego aplicando superopisción podemos resovler los dos términos de la respuesta la transformada de la respuesta al impulso mediante la suma de las transformadas de cada una de las fracciones simples.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Todas las funciones transferencias de sistemas físicos tienen el orden del denominado mayor o igual que el del denominador, por lo tanto todos son factibles de aplicar fracciones, y encontrar de esta manera su antitransformada o respuesta al impulso</p>
+</div>
+<p>Volvamos al caso de una masa y un resorte, y obtengamos la antitrasformada para una combinación de valores de <span class="math notranslate nohighlight">\(m\)</span>, <span class="math notranslate nohighlight">\(b\)</span> y <span class="math notranslate nohighlight">\(k\)</span> en que sean complejos cojugados y otro para el caso en que sean reales simples.</p>
+<p>Supondremos que saben aplicar fracciones simples y utilizar las tablas (son problemas matemáticos que no son cubiertos en este curso), lo haremos mediante el paquete de simbólico de Python <code class="docutils literal notranslate"><span class="pre">sympy</span></code>.</p>
+<section id="caso-1-polos-complejos-conjugados">
+<h3>Caso 1: Polos complejos conjugados<a class="headerlink" href="#caso-1-polos-complejos-conjugados" title="Link to this heading">#</a></h3>
+<p>Supongamos que <span class="math notranslate nohighlight">\(m=1, b=0.2 y k=5\)</span>. Entonces los polos resultan:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">m</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">b</span><span class="o">=</span><span class="mf">0.2</span>
+<span class="n">k</span><span class="o">=</span><span class="mf">0.5</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">roots</span><span class="p">([</span><span class="n">m</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">k</span><span class="p">])</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.1+0.7j, -0.1-0.7j])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Para resolver la antitransformada entonces:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+
+<span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;s, t&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">s</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="n">b</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="n">k</span><span class="p">)</span>
+
+<span class="n">sp</span><span class="o">.</span><span class="n">apart</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle \frac{1.0}{1.0 s^{2} + 0.2 s + 0.5}\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">inverse_laplace_transform</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1.42857142857143 e^{- 0.1 t} \sin{\left(0.7 t \right)} \theta\left(t\right)\]</div>
+</div>
+</div>
+</section>
+<section id="para-el-caso-en-que-los-polos-sean-reales-simples">
+<h3>para el caso en que los polos sean reales simples<a class="headerlink" href="#para-el-caso-en-que-los-polos-sean-reales-simples" title="Link to this heading">#</a></h3>
+<p>Hagamos que <span class="math notranslate nohighlight">\(b=2\)</span></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b2</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">np</span><span class="o">.</span><span class="n">roots</span><span class="p">([</span><span class="n">m</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">k</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.70710678, -0.29289322])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">s</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="n">b2</span><span class="o">*</span><span class="n">s</span><span class="o">+</span><span class="n">k</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ahora la separación por facciones simples es:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H2a</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">apart</span><span class="p">(</span><span class="n">H2</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">full</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">doit</span><span class="p">()</span>
+<span class="n">H2a</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle - \frac{0.707106781186547}{s + 1.70710678118655} + \frac{0.707106781186547}{s + 0.292893218813452}\]</div>
+</div>
+</div>
+<p>Hagamos la antitranformada de H2</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">inverse_laplace_transform</span><span class="p">(</span><span class="n">H2</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 1.41421356237309 e^{- 1.0 t} \sinh{\left(0.707106781186548 t \right)} \theta\left(t\right)\]</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span><span class="o">.</span><span class="n">inverse_laplace_transform</span><span class="p">(</span><span class="n">H2a</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle - 0.707106781186547 e^{- 1.70710678118655 t} \theta\left(t\right) + 0.707106781186547 e^{- 0.292893218813452 t} \theta\left(t\right)\]</div>
+</div>
+</div>
+<p>Podemos ver que aunque <code class="docutils literal notranslate"><span class="pre">sympy</span></code> resuelve correctamente la antitrasformadas, a veces es conveniete procesar la funciones para que el cálculo simbólico sea más simple, como por ejemplo es realizar la separación por fracciones simples.</p>
+<div class="highlight-note notranslate"><div class="highlight"><pre><span></span>La forma numérica de calcular la antiformada de Laplace de la función trnasferencia es simpemente calcular la respuesta al impulso
+</pre></div>
+</div>
+</section>
+</section>
+<section id="sistemas-en-tiempo-discreto">
+<h2>Sistemas en tiempo discreto<a class="headerlink" href="#sistemas-en-tiempo-discreto" title="Link to this heading">#</a></h2>
+<p>Cuando representamos nuestros sistema masa resorte en tiempo continuo, las ecuaciones resultantes eran ecuaciones diferenciales.</p>
+<p>En tiempo discreto estas ecuaciones no puede ser usadas para describir nuestro sistema.  En general un sistema discreto se representa como un conjunto de ecuaciones en difrencia. Es decir:</p>
+<p>Utilizando esta herramienta vimos que un sistema masa resorte, donde la entrada es la fuerza y la salida la posición del sistema se puede pensar como un filtro pasa-bajos.</p>
+<p>Utilizando esta herramienta vimos que un sistema masa resorte, donde la entrada es la fuerza y la salida la posición del sistema se puede pensar como un filtro pasa-bajos.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./sources/filtros"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-de-la-respuesta-temporal-de-un-sistema-en-el-dominio-temporal">Cálculo de la respuesta temporal de un sistema en el dominio temporal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-respuesta-al-impulso-del-sistema-masa-resorte">Ejemplo respuesta al impulso del sistema masa resorte</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caso-1-polos-complejos-conjugados">Caso 1: Polos complejos conjugados</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#para-el-caso-en-que-los-polos-sean-reales-simples">para el caso en que los polos sean reales simples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-en-tiempo-discreto">Sistemas en tiempo discreto</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por Somebody
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
