@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Guía de instalación de las herramientas computacionales &#8212; Laboratorio de Procesamiento digital de señales</title>
+    <title>Sistemas en tiempo discreto &#8212; Laboratorio de Procesamiento digital de señales</title>
   
   
   
@@ -92,12 +92,13 @@ commentsRunWhenDOMLoaded(addUtterances);
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'sources/python/guia_de_instalacion';</script>
-    <link rel="canonical" href="https://gonmolina.github.io/dsp_book/sources/python/guia_de_instalacion.html" />
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sources/filtros/filtros_digitales';</script>
+    <link rel="canonical" href="https://gonmolina.github.io/dsp_book/sources/filtros/filtros_digitales.html" />
     <link rel="index" title="Índice" href="../../genindex.html" />
     <link rel="search" title="Búsqueda" href="../../search.html" />
-    <link rel="next" title="Introducción a Python" href="intro_python.html" />
-    <link rel="prev" title="Material de la mateira de Laboratorio de Procesamiento Digital de Señales" href="../intro/intro.html" />
+    <link rel="prev" title="FILTROS" href="filtros_analogicos.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -213,11 +214,11 @@ commentsRunWhenDOMLoaded(addUtterances);
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introducción a Python</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Guía de instalación de las herramientas computacionales</a></li>
-<li class="toctree-l1"><a class="reference internal" href="intro_python.html">Introducción a Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="intro_matplotlib.html">Figuras en Python - MATPLOTLIB</a></li>
-<li class="toctree-l1"><a class="reference internal" href="intro_sympy.html">Introducción a SymPy</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/guia_de_instalacion.html">Guía de instalación de las herramientas computacionales</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/intro_python.html">Introducción a Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/intro_matplotlib.html">Figuras en Python - MATPLOTLIB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/intro_sympy.html">Introducción a SymPy</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Muestreo de señales</span></p>
 <ul class="nav bd-sidenav">
@@ -225,9 +226,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li class="toctree-l1"><a class="reference internal" href="../diapo_sistemas/diapo_sistemas.html">Sistemas dinámicos</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Filtros</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../filtros/filtros_analogicos.html">FILTROS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../filtros/filtros_digitales.html">Sistemas en tiempo discreto</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="filtros_analogicos.html">FILTROS</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sistemas en tiempo discreto</a></li>
 
 
 </ul>
@@ -276,6 +277,37 @@ commentsRunWhenDOMLoaded(addUtterances);
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/gonmolina/dsp_book/blob/main/sources/filtros/filtros_digitales.md" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -301,7 +333,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/gonmolina/dsp_book/edit/main/sources/python/guia_de_instalacion.md" target="_blank"
+      <li><a href="https://github.com/gonmolina/dsp_book/edit/main/sources/filtros/filtros_digitales.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -318,7 +350,7 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="https://github.com/gonmolina/dsp_book/issues/new?title=Issue%20on%20page%20%2Fsources/python/guia_de_instalacion.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/gonmolina/dsp_book/issues/new?title=Issue%20on%20page%20%2Fsources/filtros/filtros_digitales.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -348,7 +380,24 @@ commentsRunWhenDOMLoaded(addUtterances);
       
       
       
-      <li><a href="../../_sources/sources/python/guia_de_instalacion.md" target="_blank"
+      <li><a href="../../_sources/sources/filtros/filtros_digitales.ipynb" target="_blank"
+   class="btn btn-sm btn-download-notebook-button dropdown-item"
+   title="Descargar archivo de cuaderno"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-code"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="../../_sources/sources/filtros/filtros_digitales.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -432,7 +481,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Guía de instalación de las herramientas computacionales</h1>
+    <h1>Sistemas en tiempo discreto</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -442,17 +491,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descargar-miniforge-o-miniconda">Descargar Miniforge o Miniconda</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalar-miniconda-o-miniforge">Instalar Miniconda o Miniforge</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-de-las-herramientas-especificas-del-curso">Instalación de las herramientas especificas del curso</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-de-edicion-y-programacion">Herramientas de edición y «programación»</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-lab">Jupyter Lab</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">Visual Studio Code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spyder">Spyder</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comentarios-respecto-al-ide-a-utilizar">Comentarios respecto al IDE a utilizar</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Sistemas en tiempo discreto</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-en-diferencias">Ecuaciones en diferencias</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-iir-y-fir">Sistemas IIR y FIR</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implemetacion-de-filtros-digitales-a-partir-de-ecuaciones-en-diferencias">Implemetación de filtros digitales a partir de ecuaciones en diferencias</a></li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -463,97 +509,130 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="guia-de-instalacion-de-las-herramientas-computacionales">
-<h1>Guía de instalación de las herramientas computacionales<a class="headerlink" href="#guia-de-instalacion-de-las-herramientas-computacionales" title="Link to this heading">#</a></h1>
-<p>Para instalar Python en nuestro sistema operativo utilizaremos un gestor de entornos y paquetes (bibliotecas) de Python que se encargará de instalar todas las herramientas que estaremos utilizando en el curso.</p>
-<p>Este gestor de entornos nos permite tener una o varias instalaciones de Python, de igual o distintas versiones sin afectar nuestro sistemas operativo.</p>
-<p>Este gestor puede se puede obtener de distintas fuentes:</p>
+  <section id="sistemas-en-tiempo-discreto">
+<h1>Sistemas en tiempo discreto<a class="headerlink" href="#sistemas-en-tiempo-discreto" title="Link to this heading">#</a></h1>
+<p>En la figura siguiente podemos ver una representación de un sistema discreto:</p>
+<p><img alt="Sistema en tiempo discreto" src="../../_images/sis_z.png" /></p>
+<p>Tenemos dos formas de analizar la respuesta a cualquier entrada de un sistema discreto:</p>
+<ol class="arabic simple">
+<li><p>Resolviendo explicitamente la ecuación que describe el comportamiento del sistema. En general para sistemas LTI es:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[y(n) = -\sum_{k=1}^N a_k y(n-k)+ \sum_{k=0}^M b_k(n-k)\]</div>
+<p>donde <span class="math notranslate nohighlight">\({a_k}\)</span> y <span class="math notranslate nohighlight">\({b_k}\)</span> son parámetros constantes del sistema.</p>
+<p>A la forma de la ecuación anterior se la denomina <strong>ecuación en diferencias</strong>.</p>
+<ol class="arabic simple" start="2">
+<li><p>Si el sistema es lineal, podemos descomponer la señal de entrada en una combinación lineal de señales elementales para las cuales sea más fácil calcular la respuesta, y luego aplicamos superposición. Entonces matemáticamente sería:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[u(n) = \sum_k c_k u_k(n)\]</div>
+<p>donde <span class="math notranslate nohighlight">\(c_k\)</span> son los coeficientes de la combinación lineal y <span class="math notranslate nohighlight">\(u_k(n)\)</span> son las señales elementales.</p>
+<p>Si llamamos  <span class="math notranslate nohighlight">\(y_k(n)\)</span> a la respuesta del sistema a la señal <span class="math notranslate nohighlight">\(u_k(n)\)</span>, entonces:</p>
+<div class="math notranslate nohighlight">
+\[y_k(n) = H(u_k(n))\]</div>
+<p>Y la salida la podemos escribir como la combinación lineal de las respuestas:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+y(n) &amp;= H(u(n))\\
+y(n) &amp;= H\left(\sum c_ku_k(n)\right)\\
+y(n) &amp;= \sum\left(H\left[c_ku_k(n)\right]\right)\\
+y(n) &amp;= \sum c_k\left(H\left[u_k(n)\right]\right)\\
+y(n) &amp;= \sum c_ky_k(n)
+\end{align*}
+\end{split}\]</div>
+<p>Una señal util que podemos elegir para descomponer <span class="math notranslate nohighlight">\(u(k)\)</span> podría ser el impulso. En tiempo discreto el impulso se define:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\delta(n)= \left\{
+    \begin{align*}
+    1,\qquad &amp;\text{si } n=0\\
+    0,\qquad &amp;\text{si } n\neq k
+    \end{align*}
+\right.
+\implies
+\delta(n-k)= \left\{
+    \begin{align*}
+    1,\qquad &amp;\text{si } n=k\\
+    0,\qquad &amp;\text{si } n\neq k
+    \end{align*}
+\right.
+\end{split}\]</div>
+<p>Entonces adoptamos:</p>
+<div class="math notranslate nohighlight">
+\[u_k(n)=\delta(n-k)\]</div>
+<p>debemos encontrar los <span class="math notranslate nohighlight">\(c_k\)</span> para cada uno de los <span class="math notranslate nohighlight">\(u_k\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[u(n) = \sum c_ku_k(n) = \sum c_k \delta(n-k)\]</div>
+<p>Podemos notar que</p>
+<div class="math notranslate nohighlight">
+\[ x(n)\delta(n-k)= x(k)\delta(n-k) \]</div>
+<p>Entonces la señal <span class="math notranslate nohighlight">\(u(n)\)</span> resulta</p>
+<div class="math notranslate nohighlight">
+\[u(n) = \sum_{k=-\infty}^{\infty}u(k)\delta(n-k)\]</div>
+<p>La respuesta a <span class="math notranslate nohighlight">\(u(n)\)</span> será</p>
+<div class="math notranslate nohighlight">
+\[ y(n) = H\left[u(n)\right] = H \left[\sum_{k=-\infty}^\infty u(k)\delta(n-k)\right]\]</div>
+<p>Aplicamos superposición:</p>
+<div class="math notranslate nohighlight">
+\[ y(n) = \sum_{k=-\infty}^\infty H \left[u(k)\delta(n-k)\right]\]</div>
+<div class="math notranslate nohighlight">
+\[ y(n) = \sum_{k=-\infty}^\infty u(k) H \left[\delta(n-k)\right]\]</div>
+<p>Definimos la repuesa al impulso aplicado en <span class="math notranslate nohighlight">\(k\)</span> en el instante <span class="math notranslate nohighlight">\(n\)</span> como:</p>
+<div class="math notranslate nohighlight">
+\[ h(n,k) \triangleq H \left[\delta(n-k)\right]\]</div>
+<p>y la respuesta es ahora:</p>
+<div class="math notranslate nohighlight">
+\[y(n)=\sum_{k=-\infty}^{\infty} u(k)h(n,k)\]</div>
+<p>Si el sistema es invariante en el tiempo entonces:</p>
+<div class="math notranslate nohighlight">
+\[\delta(n) \implies h(n,0) = h(n)\]</div>
+<div class="math notranslate nohighlight">
+\[\delta(n-k)\implies h(n,k) = h(n-k)\]</div>
+<p>Con lo que resulta:</p>
+<div class="math notranslate nohighlight">
+\[y(n) = \sum_{k=-\infty}^{\infty} u(k)h(n-k)\]</div>
+<p>Que es lo que se conoce como <strong>suma de convolución</strong>.</p>
+</section>
+<section id="ecuaciones-en-diferencias">
+<h1>Ecuaciones en diferencias<a class="headerlink" href="#ecuaciones-en-diferencias" title="Link to this heading">#</a></h1>
+<section id="sistemas-iir-y-fir">
+<h2>Sistemas IIR y FIR<a class="headerlink" href="#sistemas-iir-y-fir" title="Link to this heading">#</a></h2>
+<p>Un sistema FIR es un sistema que tiene un número finitos de términos en su respuesta al impulso.</p>
+<div class="math notranslate nohighlight">
+\[h(n)=0 \text{ para } n&lt;0 \text{ y } n&gt;N\]</div>
+<div class="math notranslate nohighlight">
+\[ y(n) = \sum_{k=0}^{N-1} h(n)u(n-k) \]</div>
+<p><img alt="Diagrama de Bloques de un Sistemas FIR" src="../../_images/bd_sisz.png" /></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.anaconda.com/download">Anaconda</a>. Es la forma más difundida de obtener Python para uso científico. Sin embargo está orientada al uso de herramientas inteligencia artificial, data mining, machine learning que ocupan mucho estapcio y no estaremos utilizando. Por otro lado tiene una licencia que no puede ser usada libremente para usos comerciales.</p></li>
-<li><p><a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/">Miniconda</a>. Es la forma reducida de bajar el gestor de anterios sin todas las herramientas  mencionadas. En caso de requerirlas se pueden instalar con el propio gestor de paquetes. Esta instalación conserva las mismas restricciones que Anaconda respecto a su licencia.</p></li>
-<li><p><a class="reference external" href="https://github.com/conda-forge/miniforge">Miniforge3</a>. Es equivalente la Miniconda, pero mantenido por la comunidad. De esta manera no posée las restricciones de liecnias para uso comercial.</p></li>
+<li><p><span class="math notranslate nohighlight">\(q\)</span>: operador dezplazamiento directo</p></li>
+<li><p><span class="math notranslate nohighlight">\(q^{-1}\)</span>: operador dezplazamiento inverso (retardo)</p></li>
 </ul>
-<p>Para este curso se recomienda instalar <a class="reference external" href="https://github.com/conda-forge/miniforge">Miniforge3</a> o en su defecto <a class="reference external" href="https://docs.conda.io/projects/miniconda/en/latest/">Miniconda</a>. Sin embargo, si ya se posée una versión de <a class="reference external" href="https://www.anaconda.com/download">Anaconda</a> instalar en la máquina puede ser usada sin problemas, ya que generaremos un nuevo entorno de Python en el cual instalaremos todas las herramientas necesarias.</p>
-<section id="descargar-miniforge-o-miniconda">
-<h2>Descargar Miniforge o Miniconda<a class="headerlink" href="#descargar-miniforge-o-miniconda" title="Link to this heading">#</a></h2>
-<p>El primer paso consiste en instalar algunos de los gestores, siguiendo el enlace correspondiente. Personalmente prefiero utilizar Miniforge por la ventaja de la licencia libre.</p>
-<p>Desaconsejo instalar Anaconda por la cantidad de herramientas que trae por defecto y que en general, no serán utilizadas.</p>
-</section>
-<section id="instalar-miniconda-o-miniforge">
-<h2>Instalar Miniconda o Miniforge<a class="headerlink" href="#instalar-miniconda-o-miniforge" title="Link to this heading">#</a></h2>
-<p>Seguir las recomendaciones por defecto dadas por el instalador. Una vez terminada la instalación tendremos Python instalado en nuestro sistema. Además tendremos en el menú de inicio (en caso de estar usando Windows u OSX) un ítem que se llama Anaconda Prompt o Miniforge Prompt dependiendo del gestor que se haya instalado.</p>
-<p>Deberemos abrir este programa y nos aparecerá una muy útil ventana  como la que vemos en la imagen siguiente.</p>
-<p><img alt="Símbolo de sistema" src="../../_images/captura_miniforge.png" /></p>
-<p>Ahora si, calma y no desesperar.</p>
-<p>Lo que vemos a la izquierda entre paréntesis es el entorno que estamos utilizando. En este caso el <code class="docutils literal notranslate"><span class="pre">base</span></code> que es el preinstalado y que es muy básico. Lo siguiente es la carpeta donde estamos parado, que en general es la carpeta por defecto de usuario. Para movernos entre carpetas usando el comando <code class="docutils literal notranslate"><span class="pre">cd</span></code>.</p>
-<p>Por ejemplo si queremos ir a la carpeta <code class="docutils literal notranslate"><span class="pre">Downloads</span></code> que se encuentra dentro de la carpeta de usuario debemos escribir</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>Downloads
-</pre></div>
-</div>
-<p>Y para volver a la carpeta «padre», podemos escribir</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>..
-</pre></div>
-</div>
-<p>Ahora que sabemos movernos entre carpetas con la linea de comandos, continuaremos con las instalación del nuevo entorno con todas las herramientas del curso.</p>
-</section>
-<section id="instalacion-de-las-herramientas-especificas-del-curso">
-<h2>Instalación de las herramientas especificas del curso<a class="headerlink" href="#instalacion-de-las-herramientas-especificas-del-curso" title="Link to this heading">#</a></h2>
-<p>Para continuar con la instalación necesitaremos descargar el archivo <a class="reference external" href="https://drive.google.com/file/d/1hVi5ybLXwygE2YIkYNtcxDXSVJxCHSiV/view?usp=sharing">dsp.yml</a> haciendo click sobre el enlace anterior. Una vez descargado, dirigirse con la consola de Anaconda Powershell Prompt abierta en la carpeta de descargas donde se encuentra el archivo <code class="docutils literal notranslate"><span class="pre">dsp.yml</span></code> descargado anteriormente. En general, para dirigirse a esta carpeta podemos tipear (salvo que hayamos cambiado la carpeta de descargas en la configuración de nuestro navegador):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>Downloads
-</pre></div>
-</div>
-<p>Para verificar que el archivo se encuentre ahí, podemos tipear:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dir<span class="w"> </span>dsp.yml
-</pre></div>
-</div>
-<p>Si nos encontramos en la carpeta donde está el archivo este deberá aparecer luego del comando anterior.</p>
-<p>Finalmente para instalar todas las herramientas necesarias en el curso debemos ejecutar en este comando:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--file<span class="w"> </span>dsp.yml
-</pre></div>
-</div>
-<p>O mejor aún, si instalamos Miniforge, podremos escribir</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--file<span class="w"> </span>dsp.yml
-</pre></div>
-</div>
-<p>que funciona exactamente igual que <code class="docutils literal notranslate"><span class="pre">conda</span></code> bastante más rápido para resolver las dependencias del entorno.</p>
-<p>Una vez terminado este paso tendremos instaladas todas las herramientas necesarias para la materia. Este paso puede tardar un tiempo largo dependiendo de la velocidad de conexión.</p>
-</section>
-<section id="herramientas-de-edicion-y-programacion">
-<h2>Herramientas de edición y «programación»<a class="headerlink" href="#herramientas-de-edicion-y-programacion" title="Link to this heading">#</a></h2>
-<p>Durante el curso, para hacer los cálculos utilizaremos los cuadernos de Jupyter con Python.</p>
-<p>Para poder leer estos cuadernos podremos utilizar cualquiera de las siguientes herramientas:</p>
-<section id="jupyter-lab">
-<h3>Jupyter Lab<a class="headerlink" href="#jupyter-lab" title="Link to this heading">#</a></h3>
-<p>Se encuentra instalada con el entorno. Para ejecutarla deberemos abrir la consola y escribir:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>dsp
-jupyter<span class="w"> </span>lab
-</pre></div>
-</div>
-<p>El primer comando activa el entorno y el segundo abre la utilizar la herramienta <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">lab</span></code> para ser utilizada en el navegador de su preferencia.</p>
-<!-- #endregion -->
-</section>
-<section id="visual-studio-code">
-<h3>Visual Studio Code<a class="headerlink" href="#visual-studio-code" title="Link to this heading">#</a></h3>
-<p>Es un editor de texto libre de Microsoft con facilidades de IDE (integrated development environment) con el cual mediante el uso de plugins podemos abrir y editar los cuadernos de Jupyter.</p>
-<p>Para instalarlo debemos seguir este <a class="reference external" href="https://code.visualstudio.com/">enlace</a> y luego descargar y ejecutar el instalador.</p>
-<p>Para poder abrir los cuadernos con esta herramienta se deben agregar plugins, también desarrollados por Microsoft que los instala de forma automática cuando se intenta abrir un cuaderno.</p>
-</section>
-<section id="spyder">
-<h3>Spyder<a class="headerlink" href="#spyder" title="Link to this heading">#</a></h3>
-<p>Es un entorno desarrollado con la intención de tener una interface similar a la de Matlab.
-Para instalarlo debemos ejecutar los siguientes comandos</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>dsp
-mamba<span class="w"> </span>install<span class="w"> </span>spyder<span class="w"> </span>spyder_notebook
-</pre></div>
-</div>
-<p>La principal desventaja de este IDE es que es mucho más pesado para ejecutarse, difcultando su uso en computadores antiguos.</p>
-</section>
-<section id="comentarios-respecto-al-ide-a-utilizar">
-<h3>Comentarios respecto al IDE a utilizar<a class="headerlink" href="#comentarios-respecto-al-ide-a-utilizar" title="Link to this heading">#</a></h3>
-<p>Es importante ganar cierto práctica con el uso de la herramienta que se va a utilizar. En principio <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Lab</span></code> es una muy buena herramienta si no se tiene experiencia en la programación. Cuanta con la posibilidad de tener la ayuda en una ventana, explorador de variables, autocompletado, debug, etc.</p>
-<p>Visual Studio Code es otra muy buena posibilidad para abrir los cuadernos y trabajar con ellos, aunque a veces requiera un poco más de trabajo su configuración.</p>
+<div class="math notranslate nohighlight">
+\[qx(n) = x(1+n)\]</div>
+<div class="math notranslate nohighlight">
+\[q^{-1}x(n) = x(n-1)\]</div>
+<p>IIR causal significa que <span class="math notranslate nohighlight">\(h(n) = 0\)</span> para <span class="math notranslate nohighlight">\(n&lt;0\)</span> y</p>
+<div class="math notranslate nohighlight">
+\[h(n)=\sum_{k=0}^{\infty}h(k)u(n-k)\]</div>
+<p>A cualquier sistema IIR los podemos aproximar hasta el coeficiente <span class="math notranslate nohighlight">\(k\)</span> y partir de ahi lo representamos como un sistema FIR. Esto representación se conoce como implementación FIR no recursiva.</p>
+<p>Es importante destacar a no cualquier sistema IIR puede ser representado como ecuaciones en direferencias.</p>
 </section>
 </section>
+<section id="implemetacion-de-filtros-digitales-a-partir-de-ecuaciones-en-diferencias">
+<h1>Implemetación de filtros digitales a partir de ecuaciones en diferencias<a class="headerlink" href="#implemetacion-de-filtros-digitales-a-partir-de-ecuaciones-en-diferencias" title="Link to this heading">#</a></h1>
+<p>Si escribimos la ecuación en diferencia en función del operador retardo, la misma resulta:</p>
+<div class="math notranslate nohighlight">
+\[y(n) = -\sum_{k=1}^N a_k q^{-k} y(n)+ \sum_{k=0}^M b_k q^{-k}u(n)\]</div>
+<p>La función transferencia la podemos escribir en tiempo discreto como:</p>
+<div class="math notranslate nohighlight">
+\[\frac{y(n)}{u(n)} = \dfrac{\sum_{k=0}^M b_k q^{-k}}{\sum_{k=1}^N a_k q^{-k}} = q^{n-m} \dfrac{\sum_{k=0}^M b_k q^{m-k}}{\sum_{k=1}^N a_k q^{n-k}}\]</div>
+<p>Esta funcionestransferencia las hemos obtenido haciendo unas trampa. Hmeos considerado el operador <span class="math notranslate nohighlight">\(q^{-1}\)</span> como el retardo. Este operador no existe en el dominio temporal. Sin embargo, existe una transformada de señales en tiempo discreto, en la que la variable del dominio transformado resulta en el translado temporal. Esta transformada se la conoce como transformada <span class="math notranslate nohighlight">\(Z\)</span>. Por lo tanto, la forma correcta de escribir la función anterior sería utilizando las expresiones en este dominio, que resultan:</p>
+<div class="math notranslate nohighlight">
+\[\frac{Y(z)}{U(z)} = z^{n-m} \dfrac{\sum_{k=0}^M b_k z^{m-k}}{\sum_{k=1}^N a_k z^{n-k}}\]</div>
+<p>Esta transformada <span class="math notranslate nohighlight">\(Z\)</span> es en el dominio de tiempo discreto análoga a la transformda de Laplace en el dominio de tiempo continuo.</p>
+<p>La implemtanción de un filtro discreto se puede hacer facilmente con un algoritmo que calcule la salida <span class="math notranslate nohighlight">\(y\)</span> para cada instante <span class="math notranslate nohighlight">\(n\)</span> a partir del valor actual y los <span class="math notranslate nohighlight">\(m\)</span> valores anteriores de la entrada junto con los <span class="math notranslate nohighlight">\(n\)</span> valores anteriores de la salida.</p>
+<p>De esta manera, hemos mucho más directo o cercano a la imlementación, la función transferencia en tiempo discreto que lo que es la función transferencia en el dominio continuo.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -569,7 +648,7 @@ mamba<span class="w"> </span>install<span class="w"> </span>spyder<span class="w
         },
         kernelOptions: {
             name: "python3",
-            path: "./sources/python"
+            path: "./sources/filtros"
         },
         predefinedOutput: true
     }
@@ -587,22 +666,13 @@ mamba<span class="w"> </span>install<span class="w"> </span>spyder<span class="w
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../intro/intro.html"
+       href="filtros_analogicos.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Material de la mateira de Laboratorio de Procesamiento Digital de Señales</p>
+        <p class="prev-next-title">FILTROS</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="intro_python.html"
-       title="siguiente página">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Introducción a Python</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -620,17 +690,14 @@ mamba<span class="w"> </span>install<span class="w"> </span>spyder<span class="w
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#descargar-miniforge-o-miniconda">Descargar Miniforge o Miniconda</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalar-miniconda-o-miniforge">Instalar Miniconda o Miniforge</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#instalacion-de-las-herramientas-especificas-del-curso">Instalación de las herramientas especificas del curso</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herramientas-de-edicion-y-programacion">Herramientas de edición y «programación»</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-lab">Jupyter Lab</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">Visual Studio Code</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spyder">Spyder</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comentarios-respecto-al-ide-a-utilizar">Comentarios respecto al IDE a utilizar</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Sistemas en tiempo discreto</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ecuaciones-en-diferencias">Ecuaciones en diferencias</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sistemas-iir-y-fir">Sistemas IIR y FIR</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implemetacion-de-filtros-digitales-a-partir-de-ecuaciones-en-diferencias">Implemetación de filtros digitales a partir de ecuaciones en diferencias</a></li>
 </ul>
+
   </nav></div>
 
 </div></div>
