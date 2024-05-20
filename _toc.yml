@@ -14,4 +14,4 @@ parts:
 - caption: "Filtros"
   chapters:
   - file: sources/filtros/filtros_analogicos.md
-  
+  - file: sources/filtros/filtros_digitales.md

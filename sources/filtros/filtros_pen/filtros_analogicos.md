@@ -1,6 +1,6 @@
 ---
 jupytext:
-  formats: ipynb,md:myst
+  formats: md:myst,ipynb
   text_representation:
     extension: .md
     format_name: myst
@@ -52,7 +52,7 @@ Se define a transformada de Laplace $F(s)$ de una función definida para $t\in\m
 
 $$F(s) = \int_{0}^{\infty} e^{-st}f(t)dt$$
 
-La función de tranformación anterior se la conoce como transformada unilateral de Laplace.
+La función de trasformación anterior se la conoce como transformada unilateral de Laplace.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
@@ -114,7 +114,7 @@ $\mathcal{L}\left\{\dfrac{df(t)}{dt}\right\}=sF(s)-f(0)$
 
 #### Transformada de una derivada de segundo orden
 
-$\mathcal{L} \left\{ \dfrac{d^2f(t)}{dt^2} \right\}=s^2F(s)-sf(0)-f'(0)$
+- $\mathcal{L} \left\{ \dfrac{d^2f(t)}{dt^2} \right\}=s^2F(s)-sf(0)-f'(0)$
 
 +++ {"editable": true, "slideshow": {"slide_type": "subslide"}}
 
@@ -142,7 +142,7 @@ $$f(0)=\lim_{s\rightarrow \infty}sF(s)$$
 
 +++ {"editable": true, "slideshow": {"slide_type": "notes"}}
 
-Usando la tabla anterior junto con las propiedades, podemos obtener rapidamente la transformada de Laplace de un conjunto muy grande de funciones temporales.
+Usando la tabla anterior junto con las propiedades, podemos obtener rápidamente la transformada de Laplace de un conjunto muy grande de funciones temporales.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
@@ -193,7 +193,7 @@ Esta última ecuación es la descripción del sistema escrita como la relación 
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-## Ejercicio (5 minutos)
+## Ejercicio. Función de transferencia (5 minutos)
 
 Usando la tabla de propiedades, obtener la función transferencia del sistema si la salida es la velocidad $v(t)$
 
@@ -234,11 +234,11 @@ Por lo tanto podemos decir que **la función transferencia es la transformada de
 
 +++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
 
-El paquete de control instalado con las herramientas del curso nos brinda la posibildad de implementar sistemas descriptos a partir de su función transferencia y simularlos frente a entradas.
+El paquete de control instalado con las herramientas del curso nos brinda la posibilidad de implementar sistemas descritos a partir de su función transferencia y simularlos frente a entradas.
 
 +++ {"editable": true, "slideshow": {"slide_type": "notes"}}
 
-El paquete de control aprovecha la particularidad de que las funciones transferencias transferencias son, en general, relaciónes de polinomios en $s$, por lo tanto se definen con los coficientes del polinomio numerador y los coeficientes del polinomio numerador.
+El paquete de control aprovecha la particularidad de que las funciones transferencias transferencias son, en general, relaciones de polinomios en $s$, por lo tanto se definen con los coeficientes del polinomio numerador y los coeficientes del polinomio numerador.
 
 ```{code-cell} ipython3
 ---
@@ -312,29 +312,30 @@ r.y.shape
 
 Podemos ver que el la respuesta tiene 3 dimensiones.
 En tercera dimensión se encuentran los puntos de la respuesta al escalón, las primeras dos dimensiones se usan en casos de que el sistema simulado tenga muchas entras/salidas.
-Con la primera dimensión se seleccion la salida, y con la segunda dimensión la entrada a la cual se aplica el escalón.
-En este caso como el sistema tiene solo una entrada y una salida debemos seleccionar obliagoriamente la salida 0 para la primer dimensión y la entrada 0 para la segunda dimensión.
+Con la primera dimensión se selección la salida, y con la segunda dimensión la entrada a la cual se aplica el escalón.
+En este caso como el sistema tiene solo una entrada y una salida debemos seleccionar obligatoriamente la salida 0 para la primer dimensión y la entrada 0 para la segunda dimensión.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-## Ejercicio (5 minutos)
+## Ejercicio. Respuesta al impulso (5 minutos)
 
-Usando la función `impulse_response` graficar la respuesta al impulso (o lo que es lo mismo, la antitrasformada de la función transferencia)
+Usando la función `impulse_response` graficar la respeta al impulso (o lo que es lo mismo, la antitransformada de la función transferencia)
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-## Ejercicio (15 minutos)
+## Ejercicio. Transformada de Laplace. (15 minutos)
 
-Obtener la transformada de Laplace del sistema del pizarrón sabiendo que la entrada es la tensión $u(t)$ en bornes de la fuente, la salida es la tensión $y(t)$ en bornes de la resistencia, y que la ecuación que gobierna la tensión en un capacitor es 
+Obtener la transformada de Laplace del sistema del pizarrón sabiendo que la entrada es la tensión $u(t)$ en bornes de la fuente, la salida es la tensión $y(t)$ en bornes de la resistencia, y que la ecuación que gobierna la tensión en un capacitor es
 
-$$v_c(t) = \frac{1}{C}\int_0^ti_C(t)dt$$ 
+$$v_c(t) = \frac{1}{C}\int_0^ti_C(t)dt$$
 
-y la tensión en la resistencia es 
+y la tensión en la resistencia es:
 
 $$v_R(t)=i_R(t)R$$
 
 Ayudas:
-1. Aplicar ley de Kirchoff de tensiones teniendo en cuenta que $i_R(t) = i_C(t)$ escribiendola $u(t)= v_c(t)+v_R(t)$ 
+
+1. Aplicar ley de Kirchoff de tensiones teniendo en cuenta que $i_R(t) = i_C(t)$ y que $u(t)= v_c(t)+v_R(t)$
 2. Transformar por Laplace la ecuación anterior y obtener la función transferencia $\frac{I_R(s)}{U(s)}$
 3. A partir de la ecuación anterior se puede obtener $\frac{V_C(s)}{U(s)}$ y $\frac{V_R(s)}{U(s)}$
 
@@ -346,10 +347,9 @@ Ayudas:
 
 Vamos a describir las características de los tipos de filtros más habituales.
 Por otra parte, un cierto conocimiento de filtrado analógico es necesario para diseñar las etapas de adquisición (filtros antialising) y reproducción (filtros de reconstrucción) en sistemas de procesamiento digital.
-Se distinguen por la caída de la respuesta en frecuencia en la primera década, desde la frecuencia de corte y en el retardo de grupo.
-En la siguiente figura mostramos las respuestas en frecuencia que definen la los filtros analógicos más empleados.
+En la siguiente figura mostramos las respuestas en frecuencia que definen a los filtros analógicos más empleados.
 
-En general, para poder sintetizar un filtro análogico, primero vamos a obtener su función transferencia.
+En general, para poder sintetizar un filtro analógico, primero vamos a obtener su función transferencia.
 Según los objetivos del filtro existen distintos tipos entre los cuales podemos elegir para obtener la función transferencia.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
@@ -357,16 +357,16 @@ Según los objetivos del filtro existen distintos tipos entre los cuales podemos
 ## Tipos de filtros según su rango de frecuencias de paso
 
 - pasa-bajos: permite el paso de bajas frecuencias eliminando las altas
-- pasa-altos: permite el paso de las altes frecuencias elimando las altas
+- pasa-altos: permite el paso de las altas frecuencias eliminando las altas
 - pasa-banda: permite el paso de un rango de frencuencias, elimando las altas y las bajas
 - elimina-banda: rechaza un rango de frecuencias, permitiendo el paso de frecuencias altas y bajas
 - pasa-todos: son filtro que lo que buscar es modificar la fase más que la ganancia del sistema.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-## Parámetros de los filtros 
+## Parámetros de los filtros
 
-- frecuencia de corte: frecuencia a la cual la ganancia cae 3 db respecto a la ganancia en la freuncia de paso: (frecuencia infinita para el pasa alto, frecuencia 0 para el pasa bajo y frecuencia media para el pasa banda)
+- frecuencia de corte: frecuencia a la cual la ganancia cae 3 db respecto a la ganancia en la frecuencia de paso: (frecuencia infinita para el pasa alto, frecuencia 0 para el pasa bajo y frecuencia media para el pasa banda)
 - ancho de banda: tiene sentido su definición para el pasa-banda y es la resta entre la frecuencia de corte superior y la inferior del filtro. En un pasa-bajos el ancho de banda es la frecuencia de corte del sistema.
 - atenuación mínima: en general se requiere una atenuación mínima en un rango de frecuencias determinado en la banda de rechazo. Por ejemplo para un filtro pasabajos de frecuencia de corte 100 Hz se le puede pedir una atenuación (inversa de la ganancia) mínima de 100 para frecuencias mayores a 500 Hz.
 
@@ -380,7 +380,7 @@ Según los objetivos del filtro existen distintos tipos entre los cuales podemos
 
 +++ {"editable": true, "slideshow": {"slide_type": "notes"}}
 
-- Filtro de butterworth: Respuesta maximamente plana en la banda de paso y en la banda de eliminación.
+- Filtro de butterworth: Respuesta máximamente plana en la banda de paso y en la banda de eliminación.
 - Filtro de   filtros Tchebyshev tipo I: consiguen una caída más abrupta a frecuencias bajas en base a permitir un rizado de la respuesta en frecuencia en alguna de las bandas:
   - Son filtros solo polos
   - Presentan rizado constante en la banda pasante
@@ -404,7 +404,7 @@ El paquete de `scipy` de Python cuenta con varias herramientas para el diseño d
 Vamos a mostrar aquí las funciones para un filtro butterworth:
 
 - `scipy.signal.buttord`: sirve para obtener el orden del filtro de butterwoth que cumple con los requerimientos en la banda de paso y en la banda de rechazo. Toma como argumento las banda de paso de y rechazo y las ganancias de para esas bandas.
-- `scipy.signal.butt`: sirve para obtener el filtro a partir de las frecuecnias de corte y el orden obtenido con la función anterior.
+- `scipy.signal.butt`: sirve para obtener el filtro a partir de las frecuencias de corte y el orden obtenido con la función anterior.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
@@ -415,15 +415,15 @@ Otras dos funciones útiles par el diseño de filtros pueden ser:
 - `scipy.signal.iirdesign`
 - `scipy.signal.iirfilter`
 
-Todas estas funciones están pensadas para obtener la función transferencia de un filtro, pero se utilizan de manera diferente. Siempre es conveniente chuequear la documentación de `scipy.signal` al respecto.
+Todas estas funciones están pensadas para obtener la función transferencia de un filtro, pero se utilizan de manera diferente. Siempre es conveniente chequear la documentación de `scipy.signal` al respecto.
 
 +++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-### Ejemplo
+### Ejemplo de diseño de filtro pasa-banda
 
 Supongamos que queremos realizar un filtro pasa-banda con frecuencias de corte 100 y 500 rad/seg, con ganancia 1 en la banda de paso y una atenuación 20 para ganancias menores a 10 rad/seg y mayores 2500 rad/seg.
 
-Para estudiar este filtro voy a utilizar el paquete de control instalado con las herramientas dadas.
+Para diseñar el filtro en cuestión utilizaremos `sicpy`. Sin embargo, para estudiar las respuesta de este filtro voy a utilizar el paquete de `control` instalado con las herramientas dadas.
 
 ```{code-cell} ipython3
 ---
@@ -433,209 +433,245 @@ slideshow:
 ---
 from control import tf, bode, forced_response
 from scipy.signal import iirdesign, iirfilter
-import numpy as np
-import matplotlib.pyplot as plt
-
-b,a= iirdesign([100, 500], [10, 2500], 3, 26, True, 'butter', 'ba')
 ```
 
-Los argumentos de la función anterior, en el orden en que aparecen son: la banda de paso, la banda de rechazo, la atenuación máxima en la banda de paso, la atenuación mínima en la banda de rechazo, si se trata de un filtro analógico, tipo de filtro y por último el formato en que `scipy` devuelve la función transferencia del filtro. Con este último argumento lo que devuelve son los coeficientes de los polinomios del numerador y denominador.  
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
 
-Estos valores son los que usa la función `tf` del paquete de control de Python para generar funciones transferencia. Definamos entonces la función trnasferencia del filtro con el paquete de Python.
+Para diseñar utilizaremos la función `iirdesign`. Los argumentos de esta función son:
+
+1. frecuencias de corte para la banda de paso
+1. frecuencia donde comienza la banda de atenuación
+1. atenuación máxima en db en la banda de paso
+1. atenuación mínima en db requerida en la banda de atenuación
 
 ```{code-cell} ipython3
 ---
 editable: true
 slideshow:
-  slide_type: slide
+  slide_type: subslide
 ---
+b,a= iirdesign([100, 500], [10, 2500], 3, 26, True, 'butter', 'ba')
 G=tf(b,a)
 G
 ```
 
-Recordando que la trnasformada de Fourier es lo mismo que la transformada de Laplace con la parte real igualada a 0.  Es decir, si $s =\sigma\pm j\omega$, si hacemos $\sigma = 0$ la trnasformada de Laplace y de Fourier resultan iguales.
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
 
-Por lo tanto, podemos estudiar de alguna manera, el comportamiento en frecuencia del sistema haciendo $\sigma = 0$ en la función trnasferencia del filtro. Para esto primero definimos un vector de frecuencias entre 1 y 10000 espaciados logaritmicamente.
+Como discutimos en clase, el análisis de la respuesta en frecuencia respecto a su comportamiento en regimen estacionario (luego de que transcurre mucho tiempo), se puede estudiar a partir de la función transferencia evaluando a la misma en $s=j\omega$.
+Para esto vamos a definir un vector de frecuencias `w`, distribuidos logaritimicamente.
+En la siguiente función generamos un vector con 1001 elementos entre $10^0$ y $10^4$ distribuidos en forma logarítmica.
 
 ```{code-cell} ipython3
+---
+editable: true
+slideshow:
+  slide_type: subslide
+---
+import numpy as np
 w = np.logspace(0, 4, 1001)
 ```
 
-Para estudiar el comportamiento del sistema en frecuencia evaluaremos en cada  unos de los valores en `w` el modulo de la función transferencia. Esto se hace de la siguiente manera:
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
+
+En el módulo de control, la evaluación de una función transferencia en un punto del planto $s$ se realiza de la misma forma que la evaluación de una función cualquiera, es decir con el nombre y el argumento entre paréntesis. Para evaluar en el vector de frecuencias Python nos permite hacer lo siguiente:
 
 ```{code-cell} ipython3
+---
+editable: true
+slideshow:
+  slide_type: fragment
+---
 m=np.abs(G(1j*w))
 ```
 
 ```{code-cell} ipython3
-w.shape
-```
-
-```{code-cell} ipython3
-f, ax = plt.subplots(1,1, figsize=(6,3))
-ax.semilogx(w, m)
-ax.grid()
-```
-
-Si queremos graficarlo centrado deberemos respetar una simetría logarítmica. Poniedo en el centro de la figura en el centro de la banda de paso y los limites de la figura equidistantes al centro de la banda de paso en escala logaritmica la figura quedará mejor presentada. Esto lo podemos hacer la sigueinte manera:
-
-```{code-cell} ipython3
-wc = np.sqrt(100*500) # centro de la banda de paso
-ul = wc*40
-ll = wc/40
-```
-
-```{code-cell} ipython3
-f, ax = plt.subplots(1,1, figsize=(6,3))
-ax.semilogx(w, m)
-ax.set_xlim([ll, ul])
-ax.set_ylabel(r'|G(j$\omega$)|')
-ax.set_xlabel(r'j$\omega$)[rad/seg]')
-ax.grid();
-```
-
-Esta grafica nos da la información de la **respuesta en frecuencia del filtro enestado estacionario**. Esto quiere decir que nos data el valor de ganancia del sistema en estado estacionario a señales seniodales para cada una de las frecuencias $\omega$.
-
-Podríamos hacer una grafica de la fase, de de en vez de módulo. Para eso tedremos que hacer:
-
-```{code-cell} ipython3
+---
+editable: true
+slideshow:
+  slide_type: skip
+---
+import matplotlib.pyplot as plt
 %matplotlib widget
-ang=np.angle(G(1j*w), deg=True)
-f, ax = plt.subplots(1,1, figsize=(6,3))
-ax.semilogx(w, ang)
-ax.set_xlim([ll, ul])
-ax.set_ylabel(r'$\angle G(j\omega)$')
-ax.set_xlabel(r'j$\omega$)[rad/seg]')
-ax.grid();
 ```
 
-Lo que indica está figura es el desfasaje entre la salida y la entrada en estado estacionario para entradas senoidales de cada una de las frecuencias.
+```{code-cell} ipython3
+---
+editable: true
+slideshow:
+  slide_type: subslide
+---
+f,a = plt.subplots(1,1, figsize=(7,4))
+a.semilogx(w, m)
+a.grid()
+a.set_xlabel('Frecuencia [rad/seg]')
+a.set_ylabel('Magnitud [unidades físicas ganancia]');
+```
 
-+++
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
 
-Uniendo las dos figuras, pdríamos decir que, por ejemplo, para una señal senoidal de 100 rad/seg y amplitud 1, tedremos como salida una señal senoidal de 100 rad/seg, amplitud 0.7 aproximadamente y un desfasaje con la entrada de unos 90 grados aproximadamente. Para verificarlo podemos **simular** el filtro.
+Es normal usar escala logarítmica en el eje de frecuencias. En el eje y, dependiendo de lo que se quiera estudiar se usa escala logarítmica o lineal. Personalmente para estudiar el comportamiento de filtros prefiero la escala lineal en el eje y para evitar las fugas a menos infinito que no permiten ver los valores de ganancia 0 o de alta atenuación.
+
+Cuando se utilizan en el eje y escala logaritmica, en general se usan el dB como unidad. el db se define como $x|_{dB}=20\log(x)$.
+
+Entonces, la misma gráfica en dB la podemos hacer como:
 
 ```{code-cell} ipython3
-# Genero la señal de entrada
-ws = 100
-tf= 10
-t=np.linspace(0, tf, 20001)
+---
+editable: true
+slideshow:
+  slide_type: subslide
+---
+f,a = plt.subplots(1,1, figsize=(7,4))
+a.semilogx(w, 20*np.log(m))
+a.grid()
+a.set_xlabel('Frecuencia [rad/seg]')
+a.set_ylabel('Magnitud [dB]');
+```
+
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
+
+Esta forma de graficar es muy común de verla en el análisis de sistemas realimentados.
+
+Vamos ahora a analizar la respuesta de sistema a entradas senoidales, pero ahora a partir de hacer la simulación del sistema. Para esto, vamos a generar una señal senoidal de una frecuencia determinada por `ws` y de tiempo `tf`.
+
+```{code-cell} ipython3
+---
+editable: true
+slideshow:
+  slide_type: subslide
+---
+ws = 200
+tf= 2
+t=np.linspace(0, tf, 10001)
+
 u=np.sin(ws*t)
 ```
 
-Para simular sistemas representados como funciones transferencias en el paquete de control frene a cualquier entrada, podemos usar la función `forced_response`.
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
+
+Para obtener la respuesta utilizaremos la función `forced_response` del paquete de control.
 
 ```{code-cell} ipython3
-y=forced_response(G,t,u)
+---
+editable: true
+slideshow:
+  slide_type: fragment
+---
+r=forced_response(G,t,u)
 ```
 
 ```{code-cell} ipython3
-f, ax = plt.subplots(1,1, figsize=(6,3))
-ax.plot(t, u, 'r')
-ax.plot(t, y.y[0], 'b')
+---
+editable: true
+slideshow:
+  slide_type: subslide
+---
+f,a = plt.subplots(1,1, figsize=(9,4))
+a.plot(t, r.y[0])
+a.grid()
+a.set_xlabel('Tiempo [s]')
+a.set_ylabel('Magnitud [unidad física de la salida]');
 ```
 
-Para verificar las conclusiones veremos el final de la onda (estado estacionario) y compararemos la señal de entrada $u$ en rojo con la salida $y$ en azul.
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-```{code-cell} ipython3
-%matplotlib widget
-f, ax = plt.subplots(1,1, figsize=(6,3))
-ax.plot(t[-500:], u[-500:], 'r')
-ax.plot(t[-500:], y.y[0,-500:], 'b')
-ax.grid()
-```
+## Función trnasferencia y la respuseta al impulso
 
-Haciendo zoom en las zonas de interes, podemos que que la amplitud máxima de la azul es aproximadanete 0.71, lo cual confirma dos cosas:
-
-- el diseño del filtro es correcto, ya que 100 rad/seg es la frecuencia de corte y 0.707 significa -3dB.
-- que el diagrama de amplitud que hicimos nos dio el valor de la ganancia del filtro a esa frecuencia
-
-Para ver el desfasaje, veamos el diferencia de tiempos del curce por cero de las dos ondas cuando suben. Haciendo zoom y una regla de tres simple, obtenemos el desfasaje:
-
-```{code-cell} ipython3
-tazul = 9.786
-trojo= 9.8017
-(trojo-tazul)/(2*np.pi/100)*360  #(diferencia de tiempos/(periodo de la onda)*360 da el desfasaje en grados)
-```
-
-Se dice que el el desfasaje es 90 grados positivo. Es decir que la salida adelante a la entada en 90 gados para la freuencia 100 rad/seg.
-
-+++
-
-##  Teorema de la convolución
-
-+++
++++ {"editable": true, "slideshow": {"slide_type": ""}}
 
 En la primera parte del temario de filtros vimos una herramienta de modelado de sistemas dinámicos: *la función transferencia*. Vimos que la función transferencia la podemos pensar de dos formas:
 
 - La transformada de Laplace de la salida del sistema sobre la transformada de Laplace de la entrada del sistema.
 - La transformada de Laplace de la respuesta al impulso del sistema.
 
-Sin embargo, hemos dejado pasar una propiedad de la transformada de Laplace muy importante, que es la convolución. Está propiedad nos dice que la multiplicación de dos funciones en el dominio transformado de Laplace es la convolución en el dominio sin transformar. Es decir:
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
+
+Sin embargo, hemos dejado pasar una propiedad de la transformada de Laplace muy importante, pero que si hemos visto en la transformada de Fourier, y es la convolución. Está propiedad nos dice que la multiplicación de dos funciones en el dominio transformado de Laplace es la convolución en el dominio sin transformar. Es decir:
+
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
 
 $$G_1(s).G_2(s)=g_1(t) * g_2(t)=\int_0^t g(\tau)h_1(t-\tau)\text d\tau$$
 
-Está propiedad es impratante para el cáculo de las repuestas temporales de los sistemas.
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-+++
+## Cálculo de la respuesta temporal de un sistema en el dominio temporal
 
-### Cálculo de la respuesta temporal de un sistema
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
 
 Recordando lo visto en la clase anterior podemos notar que la salida del sistema en el dominio de Laplace lo podemos calcular como:
 
 $$Y(s)=H(s)U(s)$$
 
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
+
 donde $H(s)$ es la función transferencia, $U(s)$ es la transformada de Laplace de la entrada y $Y(s)$ es la transformada de Laplace de la salida.
 
-Utilizando la propiedad de convolución se puede ver muy facilmente que:
+Utilizando la propiedad de convolución se puede ver muy fácilmente que:
+
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
 
 $$y(t) = h(t)*u(t)=\int_0^th(\tau)u(t-\tau)\text d \tau$$
 
-La salida de un sistema lineal e invariente en el tiempo se puede calcular como la convolución de la respuesta al impulso y la entrada aplicada.
+La salida de un sistema lineal e invariante en el tiempo se puede calcular como la convolución de la respuesta al impulso y la entrada aplicada.
 
-De esta manera podemos que el la respuesta al impulso también caraceriza la sistema, es decir, que conociendo la respuesta al impulso podemos obtener la respuesta a cualquier entrada arbitraría.
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
 
-+++
+De esta manera podemos que el la respuesta al impulso también caracteriza la sistema, es decir, que conociendo la respuesta al impulso podemos obtener la respuesta a cualquier entrada arbitraría.
+
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 ## Ejemplo respuesta al impulso del sistema masa resorte
+
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
 
 Volvamos al sistema masa resorte anterior. Recordemos que la función transferencia es:
 
 $$X_{\delta}(s)=\frac{1}{ms^2+bs+k}$$
 
-Para poder antitransformarla facilmente, lo que se suele hacer es separar la función en fracciones simples. Para hacer estor debemos tener en cuenta la posición de los polos (ceros del denominador) del sistema. Podemos separar el problema en dos casos:
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
 
-+++
+Para poder antitransformada fácilmente, lo que se suele hacer es separar la función en fracciones simples. Para hacer estor debemos tener en cuenta la posición de los polos (ceros del denominador) del sistema. Podemos separar el problema en dos casos:
 
-1. Si el sistema tiene polos complejos conjugados, entonces las freacciones simples se pueden escribir como:
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
+
+1. Si el sistema tiene polos complejos conjugados, entonces las fracciones simples se pueden escribir como:
 
 $$H(s)=\frac{As+B}{(s-(-\sigma+j\omega))(s-(-\sigma-j\omega))}$$
+
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
 
 2.  El caso de se tengan polos reales simples:
 
 $$H(s)=\frac{A}{s-p_1}+\frac{B}{s-p_2}$$
 
-+++
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
 
-Luego aplicando superposición podemos resovler los dos términos de la respuesta la transformada de la respuesta al impulso mediante la suma de las transformadas de cada una de las fracciones simples.
+Luego aplicando superposición podemos resolver los dos términos de la respuesta la transformada de la respuesta al impulso mediante la suma de las transformadas de cada una de las fracciones simples.
+
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
 ```{note}
 Todas las funciones transferencias de sistemas físicos tienen el orden del denominado mayor o igual que el del denominador, por lo tanto todos son factibles de aplicar fracciones, y encontrar de esta manera su antitransformada o respuesta al impulso 
 ```
 
-+++
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
 
-Volvamos al caso de una masa y un resorte, y obtengamos la antitrasformada para una combinación de valores de $m$, $b$ y $k$ en que sean complejos cojugados y otro para el caso en que sean reales simples.
+Volvamos al caso de una masa y un resorte, y obtengamos la antitransformada para una combinación de valores de $m$, $b$ y $k$ en que sean complejos conjugados y otro para el caso en que sean reales simples.
 
 Supondremos que saben aplicar fracciones simples y utilizar las tablas (son problemas matemáticos que no son cubiertos en este curso), lo haremos mediante el paquete de simbólico de Python `sympy`.
 
-+++
++++ {"editable": true, "slideshow": {"slide_type": "subslide"}}
 
 ### Caso 1: Polos complejos conjugados
 
-Supongamos que $m=1$, $b=0.24$ y $k=5$. Entonces los polos resultan:
+Supongamos que $m=1, b=0.2 y k=5$. Entonces los polos resultan:
 
 ```{code-cell} ipython3
+---
+editable: true
+slideshow:
+  slide_type: subslide
+---
 import numpy as np
 m=1
 b=0.2
@@ -644,65 +680,289 @@ k=0.5
 np.roots([m,b,k]) 
 ```
 
-Supongamos que queremos la respuesta al escalón del sistema. Para resolver la respusta temporal debemos hacer la antitransformada de la función transferencia por la transformada de la función escalón que es $\dfrac{1}{s}$. Para no hacer las cuentas a mano utilizaré `sympy`.
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
+
+Para resolver la antitransformada entonces:
 
 ```{code-cell} ipython3
+---
+editable: true
+slideshow:
+  slide_type: fragment
+---
 import sympy as sp
-s, t=sp.symbols('s, t') # defino las variables s y t
 ```
 
 ```{code-cell} ipython3
-H = 1/(m*s**2+b*s+k)*(1/s)
+---
+editable: true
+slideshow:
+  slide_type: fragment
+---
+s, t=sp.symbols('s, t')
+```
 
+```{code-cell} ipython3
+---
+editable: true
+slideshow:
+  slide_type: subslide
+---
+H = 1/(m*s**2+b*s+k)
 sp.apart(H, s)
 ```
 
 ```{code-cell} ipython3
-rt = sp.inverse_laplace_transform(H, s, t)
-rt
+---
+editable: true
+slideshow:
+  slide_type: fragment
+---
+sp.inverse_laplace_transform(H, s, t)
 ```
 
-Se puede ver que está señal no es más que una señal senoidal modulada por una exponencial. La podemos grafica con el módulo de `sympy` de la siguiente manera:
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
 
-```{code-cell} ipython3
-sp.plot(rt, (t,-1,60))
-```
-
-### para el caso en que los polos sean reales simples 
+### para el caso en que los polos sean reales simples
 
 Hagamos que $b=2$
 
 ```{code-cell} ipython3
+---
+editable: true
+slideshow:
+  slide_type: fragment
+---
 b2 = 2
 np.roots([m, b2, k])
 ```
 
 ```{code-cell} ipython3
-H2 = 1/(m*s*s+b2*s+k)*(1/s)
+---
+editable: true
+slideshow:
+  slide_type: subslide
+---
+H2 = 1/(m*s*s+b2*s+k)
+H2
 ```
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
 
 Ahora la separación por facciones simples es:
 
 ```{code-cell} ipython3
+---
+editable: true
+slideshow:
+  slide_type: fragment
+---
 H2a = sp.apart(H2, s, full=True).doit()
 H2a
 ```
 
++++ {"editable": true, "slideshow": {"slide_type": "skip"}}
+
 Hagamos la antitranformada de H2
 
 ```{code-cell} ipython3
-rta = sp.inverse_laplace_transform(H2a, s, t)
-rta
-```
-
-Podemos ver que aunque `sympy` resuelve correctamente la antitrasformadas, a veces es conveniete procesar la funciones para que el cálculo simbólico sea más simple, como por ejemplo es realizar la separación por fracciones simples.
-
-Graficamos la respuesta igual que antes
-
-```{code-cell} ipython3
-sp.plot(rta, (t,-1,60))
+---
+editable: true
+slideshow:
+  slide_type: fragment
+---
+sp.inverse_laplace_transform(H2, s, t)
 ```
 
 ```{code-cell} ipython3
-
+---
+editable: true
+slideshow:
+  slide_type: fragment
+---
+sp.inverse_laplace_transform(H2a, s, t)
 ```
+
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
+
+Podemos ver que aunque `sympy` resuelve correctamente la antitransformada, a veces es conveniente procesar la funciones para que el cálculo simbólico sea más simple, como por ejemplo es realizar la separación por fracciones simples.
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
+```{important}
+La forma numérica de calcular la antitransformada de Laplace de la función transferencia es simplemente calcular la respuesta al impulso
+```
+
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
+
+## Sistemas en tiempo discreto
+
+**HACER FIGURA DE ENTRADA SALIDA DE UN SISTEMA DISCRETO**
+
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
+
+Tenemos dos formas de analizar la respuesta a cualquier entrada de un sistema discreto:
+
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
+
+1. Resolviendo explicitamente la ecuación que describe el comportamiento del sistema. En general para sistemas LTI es:
+
+$$y(n) = -\sum_{k=1}^N a_k y(n-k)+ \sum_{k=0}^M b_k(n-k)$$
+
++++ {"editable": true, "slideshow": {"slide_type": "notes"}}
+
+donde ${a_k}$ y ${b_k}$ son parámetros constantes del sistema.
+
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
+
+Esta forma se denomina **ecuación en diferencias**.
+
++++ {"editable": true, "slideshow": {"slide_type": "slide"}}
+
+2. Si el sistema es lineal, podemos descomponer la señal de entrada en una combinación lineal de señales elementales para las cuales sea más fácil calcular la respuesta, y luego aplicamos superposición. Entonces matemáticamente sería:
+
+$$u(n) = \sum_k c_k u_k(n)$$
+
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
+
+donde $c_k$ son los coeficientes de la combinación lineal y $u_k(n)$ son las señales elementales.
+
++++ {"editable": true, "slideshow": {"slide_type": "subslide"}}
+
+Llamamos  $y_k(n)$ a la respuesta del sistema a la señal $u_k(n)$, entonces:
+
+$$y_k(n) = H(u_k(n))$$
+
++++ {"editable": true, "slideshow": {"slide_type": "subslide"}}
+
+Y la salida la podemos escribir como la combinación lineal de las respuestas:
+
+$$
+\begin{align*}
+y(n) &= H(u(n))\\
+y(n) &= H\left(\sum c_ku_k(n)\right)\\
+y(n) &= \sum\left(H\left[c_ku_k(n)\right]\right)\\
+y(n) &= \sum c_k\left(H\left[u_k(n)\right]\right)\\
+y(n) &= \sum c_ky_k(n)
+\end{align*}
+$$
+
++++ {"editable": true, "slideshow": {"slide_type": "subslide"}}
+
+La señal que podemos elegir para descomponer la señal podría ser el impulso. En tiempo discreto el impulso se puede definir:
+
+$$
+\delta(n)= \left\{
+    \begin{align*}
+    1,\qquad &\text{si } n=0\\
+    0,\qquad &\text{si } n\neq k
+    \end{align*}
+\right.
+\implies
+\delta(n-k)= \left\{
+    \begin{align*}
+    1,\qquad &\text{si } n=k\\
+    0,\qquad &\text{si } n\neq k
+    \end{align*}
+\right.
+$$
+
++++ {"editable": true, "slideshow": {"slide_type": "subslide"}}
+
+Entonces adoptamos:
+
+$$u_k(n)=\delta(n-k)$$
+
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
+
+debemos encontrar los $c_k$ para cada uno de los $u_k$,
+
+$$u(n) = \sum c_ku_k(n) = \sum c_k \delta(n-k)$$
+
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
+
+Podemos notar que
+
+$$ x(n) = \delta(n-k)= x(k)\delta(n-k) $$
+
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
+
+Entonces la señal $u(n)$ resulta
+
+$$u(n) = \sum_{k=-\infty}^{\infty}u(k)\delta(n-k)$$
+
++++ {"editable": true, "slideshow": {"slide_type": "subslide"}}
+
+La respuesta a $u(n)$ será  
+
+$$ y(n) = H\left[u(n)\right] = H \left[\sum_{k=-\infty}^\infty u(k)\delta(n-k)\right]$$
+
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
+
+Aplicamos superposición:
+
+$$ y(n) = \sum_{k=-\infty}^\infty H \left[u(k)\delta(n-k)\right]$$
+
+$$ y(n) = \sum_{k=-\infty}^\infty u(k) H \left[\delta(n-k)\right]$$
+
++++ {"editable": true, "slideshow": {"slide_type": "subslide"}}
+
+Definimos la repuesa al impulso aplicado en $k$ en el instante $n$ como:
+
+$$ h(n,k) \triangleq H \left[\delta(n-k)\right]$$
+
++++ {"editable": true, "slideshow": {"slide_type": "fragment"}}
+
+y la respuesta es ahora:
+
+$$y(n)=\sum_{k=-\infty}^{\infty} u(k)h(n,k)$$
+
++++ {"editable": true, "slideshow": {"slide_type": "subslide"}}
+
+Si el sistema es invariante en el tiempo entonces:
+
+$$\delta(n) \implies h(n,0) = h(n)$$
+
+$$\delta(n-k)\implies h(n,k) = h(n-k)$$
+
++++ {"editable": true, "slideshow": {"slide_type": "subslide"}}
+
+Con lo que resulta:
+
+$$y(n) = \sum_{k=-\infty}^{\infty} u(k)h(n-k)$$
+
+Que es lo que se conoce como suma de convolución.
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
+## Ecuaciones en diferencias
+
+### Sistemas IIR y FIR
+
+Un sistema FIR es un sistema que tiene un número finitos de términos en su respuesta al impulso.
+
+$$h(n)=0 \text{ para } n<0 \text{ y } n>N$$
+
+$$ y(n) = \sum_{k=0}^{N-1} h(n)u(n-k) $$
+
+**HACER DIBUJO DE DIAGRAMA DE BLOQUES DE UN SISTEMA FIR**
+
+- $q$: operador dezplazamiento directo
+- $q^{-1}$: operador dezplazamiento inverso (retardo)
+
+$$qx(n) = x(1+n)$$
+$$q^{-1}x(n) = x(n-1)$$
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
+IIR causal significa que $h(n) = 0$ para $n<0$ y
+
+$$h(n)=\sum_{k=0}^{\infty}h(k)u(n-k)$$
+
+A cualquier sistema IIR los podemos aproximar hasta el coeficiente $k$ y partir de ahi lo representamos como un sistema FIR. Esto representación se conoce como implementación FIR no recursiva.
+
+Existe para los sistemas
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
+
+Utilizando esta herramienta vimos que un sistema masa resorte, donde la entrada es la fuerza y la salida la posición del sistema se puede pensar como un filtro pasa-bajos.

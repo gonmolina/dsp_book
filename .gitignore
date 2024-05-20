@@ -135,3 +135,4 @@ _build/
 **/*.ipynb
 **.html
 
+.vscode/settings.json
