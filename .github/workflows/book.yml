@@ -24,7 +24,7 @@ jobs:
     
     - name: Install dependencies
       run: |
-        CONDA_NO_PLUGINS=true $CONDA/bin/conda env update --file environment.yml --name base 
+        $CONDA/bin/conda install -n base conda-libmamba-solver && $CONDA/bin/conda env update --file environment.yml --name base
         
     # Build the book
     - name: Build the book
