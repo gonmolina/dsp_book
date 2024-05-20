@@ -1,7 +1,6 @@
 name: book
 channels:
   - conda-forge
-  - microsoft
   - defaults
 dependencies:
   - control
@@ -20,9 +19,7 @@ dependencies:
   - matplotlib
   - myst-nb
   - myst-parser
-  - pyserial
   - pip:
     - jupyterlab-myst
-    - jupyterlab-rise
 
   
