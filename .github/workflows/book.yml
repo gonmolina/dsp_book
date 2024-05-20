@@ -24,7 +24,7 @@ jobs:
     
     - name: Install dependencies
       run: |
-        $CONDA/bin/conda env update --file environment.yml --name base
+        $CONDA/bin/conda env update --no-plugins --file environment.yml --name base 
         
     # Build the book
     - name: Build the book
