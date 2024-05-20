@@ -1,7 +1,7 @@
 name: book
 channels:
-  - conda-forge
   - defaults
+  - conda-forge
 dependencies:
   - control
   - slycot
@@ -17,6 +17,7 @@ dependencies:
   - pip
   - python=3.12
   - matplotlib
+  - mamba
   - myst-nb
   - myst-parser
   - pip:
