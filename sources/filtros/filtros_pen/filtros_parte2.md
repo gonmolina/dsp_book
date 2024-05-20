@@ -5,7 +5,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.1
+    jupytext_version: 1.16.2
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -27,7 +27,6 @@ $$G_1(s).G_2(s)=g_1(t) * g_2(t)=\int_0^t g(\tau)h_1(t-\tau)\text d\tau$$
 
 +++
 
-
 ## Cálculo de la respuesta temporal de un sistema en el dominio temporal
 
 Recordando lo visto en la clase anterior podemos notar que la salida del sistema en el dominio de Laplace lo podemos calcular como:
@@ -46,7 +45,6 @@ De esta manera podemos que el la respuesta al impulso también caraceriza la sis
 
 +++
 
-
 ## Ejemplo respuesta al impulso del sistema masa resorte
 
 Volvamos al sistema masa resorte anterior. Recordemos que la función trnasferencia es:
@@ -56,7 +54,6 @@ $$X_{\delta}(s)=\frac{1}{ms^2+bs+k}$$
 Para poder antitransformarla facilmente, lo que se suele hacer es separar la función en fracciones simples. Para hacer estor debemos tener en cuenta la posición de los polos (ceros del denominador) del sistema. Podemos separar el problema en dos casos:
 
 +++
-
 
 1. Si el sistema tiene polos complejos conjugados, entonces las freacciones simples se pueden escribir como:
 
@@ -82,7 +79,7 @@ Supondremos que saben aplicar fracciones simples y utilizar las tablas (son prob
 
 Supongamos que $m=1, b=0.2 y k=5$. Entonces los polos resultan:
 
-```{code-cell} ipython3
+```{code-cell}
 import numpy as np
 m=1
 b=0.2
@@ -93,19 +90,19 @@ np.roots([m,b,k])
 
 Para resolver la antitransformada entonces:
 
-```{code-cell} ipython3
+```{code-cell}
 import sympy as sp
 
 s, t=sp.symbols('s, t')
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 H = 1/(m*s**2+b*s+k)
 
 sp.apart(H, s)
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 sp.inverse_laplace_transform(H, s, t)
 ```
 
@@ -113,33 +110,29 @@ sp.inverse_laplace_transform(H, s, t)
 
 Hagamos que $b=2$
 
- 
-
-```{code-cell} ipython3
+```{code-cell}
 b2 = 2
 np.roots([m, b2, k])
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 H2 = 1/(m*s*s+b2*s+k)
 ```
 
 Ahora la separación por facciones simples es:
 
-```{code-cell} ipython3
+```{code-cell}
 H2a = sp.apart(H2, s, full=True).doit()
 H2a
 ```
 
 Hagamos la antitranformada de H2
 
-```{code-cell} ipython3
+```{code-cell}
 sp.inverse_laplace_transform(H2, s, t)
 ```
 
-
-
-```{code-cell} ipython3
+```{code-cell}
 sp.inverse_laplace_transform(H2a, s, t)
 ```
 
@@ -161,23 +154,8 @@ En tiempo discreto estas ecuaciones no puede ser usadas para describir nuestro s
 
 +++
 
-
-
-
-
-
 Utilizando esta herramienta vimos que un sistema masa resorte, donde la entrada es la fuerza y la salida la posición del sistema se puede pensar como un filtro pasa-bajos.
 
 +++
 
-
-
-
-
-
-
-
 Utilizando esta herramienta vimos que un sistema masa resorte, donde la entrada es la fuerza y la salida la posición del sistema se puede pensar como un filtro pasa-bajos.
-
-
-+++
