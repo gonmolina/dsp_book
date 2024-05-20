@@ -559,7 +559,7 @@ document.write(`
 <p>Realizo la figura de la señal. Uso opciones de <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> no tan parecidas a las de <code class="docutils literal notranslate"><span class="pre">Matlab</span></code>, pero que dan mucho mejor control sobre la figura.</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="../../_images/503ee7ec20001d6b14052b2c8c63c79d9fa6ecb2549a2da19b409897eff16b5d.png" src="../../_images/503ee7ec20001d6b14052b2c8c63c79d9fa6ecb2549a2da19b409897eff16b5d.png" />
+<img alt="../../_images/6148181a830e3eda335b4ca381b1085d2787b1310ee50747f7b7998ecb8175b4.png" src="../../_images/6148181a830e3eda335b4ca381b1085d2787b1310ee50747f7b7998ecb8175b4.png" />
 </div>
 </div>
 <p>Ahora veamos qué sucede si digitalizamos la señal. Por ahora suponemos que no perdemos precisión pero sí resolución temporal. En este caso la frecuencia de muestreo, f sub d, es de 4 muestras por cada 10 segundo. Las muestras en Sd las obtenemos mediante la función <code class="docutils literal notranslate"><span class="pre">interp1</span></code>, que en realidad es excesivamente costosa para lo que estamos haciendo pero en este caso estoy sacrificando eficiencia para ser mas claro, creo. Eso nos da unos pocos puntos por ciclo de la frecuencia mas alta (6), pero más que suficientes para seguir la evolución de la señal. Obviamente parte del ruido blanco sigue existiendo en la medición, ya que ninguno de los puntos estará exactamente sobre la señal pura que obtendríamos sin agregar el ruido en sa.</p>
@@ -580,10 +580,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8c1ad1ee40&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fa524df3440&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/88aa8d1f928ffe5e815b1f9afe3cba93f206467739f89e88031d8ac80ce5d103.png" src="../../_images/88aa8d1f928ffe5e815b1f9afe3cba93f206467739f89e88031d8ac80ce5d103.png" />
+<img alt="../../_images/7d076b22d91e71ccefc7b47315921e17ddc237b050054ea7046397bea8cd01c1.png" src="../../_images/7d076b22d91e71ccefc7b47315921e17ddc237b050054ea7046397bea8cd01c1.png" />
 </div>
 </div>
 <p>Genero una función de interpolación 1d lineal y le aplico los puntos de la señal original.</p>
@@ -597,7 +597,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d16bd1ca03230728ab965990ba3e41a1a8f87b9ea255f8266ba280b45b9d5e4c.png" src="../../_images/d16bd1ca03230728ab965990ba3e41a1a8f87b9ea255f8266ba280b45b9d5e4c.png" />
+<img alt="../../_images/bc5e72c8a336ecc94d4bddcd32052cede5a2cba0556a438a9cd3fa89d51e4ddf.png" src="../../_images/bc5e72c8a336ecc94d4bddcd32052cede5a2cba0556a438a9cd3fa89d51e4ddf.png" />
 </div>
 </div>
 <p>Ahora si continuamos reduciendo la frecuencia de muestreo <code class="docutils literal notranslate"><span class="pre">fd</span></code> hasta hacerla 1, vemos que todos los puntos caen aproximadamente sobre la función senoidal correspondiente a la frecuencia más baja.</p>
@@ -621,10 +621,10 @@ Puesto de esta forma, un tanto aproximada, pareciera que la frecuencia de muestr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8c1af2c2f0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fa524c8c8f0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/2e90e12578318ff6021295e1e6fcbf0e56f80f4651b3e2660dddd66b58653814.png" src="../../_images/2e90e12578318ff6021295e1e6fcbf0e56f80f4651b3e2660dddd66b58653814.png" />
+<img alt="../../_images/6c3903f6a4b65d97c513f58fd3718551ca7987c07d381916ac2fb2816cb0c927.png" src="../../_images/6c3903f6a4b65d97c513f58fd3718551ca7987c07d381916ac2fb2816cb0c927.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -636,7 +636,7 @@ Puesto de esta forma, un tanto aproximada, pareciera que la frecuencia de muestr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/70bce7e98dcb619e2660dd2690e766023e8b24fc7807f4be9c7d31dc2a508b7e.png" src="../../_images/70bce7e98dcb619e2660dd2690e766023e8b24fc7807f4be9c7d31dc2a508b7e.png" />
+<img alt="../../_images/14f97e465ffabf2a7ca18f92aec391dca447bcc4293f88cdb36b5bdd34f1dd72.png" src="../../_images/14f97e465ffabf2a7ca18f92aec391dca447bcc4293f88cdb36b5bdd34f1dd72.png" />
 </div>
 </div>
 <p>En realidad el teorema de Nyquist-Shannon dice que la señal se puede recuperar de forma exacta si siendo:</p>
@@ -684,7 +684,7 @@ Puesto de esta forma, un tanto aproximada, pareciera que la frecuencia de muestr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bf37b8e36b08c6f085030beec32e0b277d70bdc8ac70836712f5f6afb4ebc389.png" src="../../_images/bf37b8e36b08c6f085030beec32e0b277d70bdc8ac70836712f5f6afb4ebc389.png" />
+<img alt="../../_images/b87e45fd521213c94766b60d69b308848eb12400f081050381f6f87a2511b17e.png" src="../../_images/b87e45fd521213c94766b60d69b308848eb12400f081050381f6f87a2511b17e.png" />
 </div>
 </div>
 <p>Si bien los puntos se pueden ajustar bien mediante la señal original, obviamente, también se pueden ajustar mediante una nueva función compuesta por la frecuencia menor, de 0,05 Hz y otra menor a la original de 0,5 Hz. De hecho la nueva componente es menor también a la frecuencia de Nyquist y es f1 – fd.</p>

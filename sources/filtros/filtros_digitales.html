@@ -531,16 +531,13 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[y_k(n) = H(u_k(n))\]</div>
 <p>Y la salida la podemos escribir como la combinación lineal de las respuestas:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align*}
-y(n) &amp;= H(u(n))\\
-y(n) &amp;= H\left(\sum c_ku_k(n)\right)\\
-y(n) &amp;= \sum\left(H\left[c_ku_k(n)\right]\right)\\
-y(n) &amp;= \sum c_k\left(H\left[u_k(n)\right]\right)\\
+<p>\begin{align*}
+y(n) &amp;= H(u(n))\
+y(n) &amp;= H\left(\sum c_ku_k(n)\right)\
+y(n) &amp;= \sum\left(H\left[c_ku_k(n)\right]\right)\
+y(n) &amp;= \sum c_k\left(H\left[u_k(n)\right]\right)\
 y(n) &amp;= \sum c_ky_k(n)
-\end{align*}
-\end{split}\]</div>
+\end{align*}</p>
 <p>Una señal util que podemos elegir para descomponer <span class="math notranslate nohighlight">\(u(k)\)</span> podría ser el impulso. En tiempo discreto el impulso se define:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}

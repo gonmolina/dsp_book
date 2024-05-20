@@ -58,7 +58,6 @@ $$y_k(n) = H(u_k(n))$$
 
 Y la salida la podemos escribir como la combinación lineal de las respuestas:
 
-$$
 \begin{align*}
 y(n) &= H(u(n))\\
 y(n) &= H\left(\sum c_ku_k(n)\right)\\
@@ -66,7 +65,6 @@ y(n) &= \sum\left(H\left[c_ku_k(n)\right]\right)\\
 y(n) &= \sum c_k\left(H\left[u_k(n)\right]\right)\\
 y(n) &= \sum c_ky_k(n)
 \end{align*}
-$$
 
 +++ {"editable": true, "slideshow": {"slide_type": "subslide"}}
 
